@@ -1,0 +1,122 @@
+<div class="row">
+    <div class="col-md-12">
+      
+        <div class="card-header">
+          <h4 class="card-title"></h4>
+        </div>
+      
+          <span  (click)="OpenAssignmentModal(template,'save')" class="btn btn-primary btn-xs">Add New Assignment</span>
+          <br /><br />
+          <div class="table-responsive">
+            <table id="mytable" class="table table-bordred table-striped">
+              <thead>
+               
+                <th>Username</th>
+                <th>Name</th>
+                <th>LastName</th>
+                 
+                <th>Last Session Date Time</th>            
+                <th>Show Assignment</th>
+            
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of UserList;let i = index">
+                  
+                  <td>{{item.userName}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.lastName}}</td>            
+                  <td>{{item.lastSessionDateTime | date}}</td> 
+                  <td><span class="btn btn-primary btn-xs" (click)="OpenAssignmentModal(template,'edit',i)">
+                      <span class="nc-icon nc-ruler-pencil"></span></span></td>
+                 
+                </tr>
+              </tbody>
+            </table>
+    
+          
+  
+  
+      </div>
+    </div>
+  
+    <ng-template #template>
+     
+        <div class="modal-header">
+         
+          <h4 class="modal-title" id="add-modal-label">{{titleModal}}</h4>
+        </div>
+        <div class="modal-body">
+        
+         
+          <div class="form-group">
+            <label class="col-sm-2 control-label" >Usuario</label>
+            <select class="form-control"   [(ngModel)]="assignment.UserID" (ngModelChange)="showAssignment()">
+             <option *ngFor="let item of UserList; let i = index" [ngValue]="UserList[i].id">
+                {{UserList[i].userName}}
+              </option>
+             </select>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" >Hardware</label>
+            <select class="form-control"   [(ngModel)]="assignment.HardwareID">
+             <option *ngFor="let item of HardwareList; let i = index" [ngValue]="HardwareList[i].id">
+                {{HardwareList[i].hardwareName}}
+              </option>
+             </select>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" >Software</label>
+            <select class="form-control"  [(ngModel)]="assignment.SoftwareID">
+             <option *ngFor="let item of SoftwareList; let i = index" [ngValue]="SoftwareList[i].id">
+                {{SoftwareList[i].softwareName}}
+              </option>
+             </select>
+          </div>
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+          <div *ngIf="save"><button (click)="saveAssignment()" type="submit" class="btn btn-primary">Assignment</button></div>
+          <div *ngIf="edit"><button (click)="editAssignment()" type="submit" class="btn btn-primary">Edit</button></div>
+        </div>
+        <div class="table-responsive">
+            <h6>Assignment by User</h6>
+        <table id="mytable1" class="table table-bordred table-striped">
+            <thead>
+             
+              <th>Hardware Name</th>
+              <th>Software Name</th>      
+              <th>Delete</th>
+          
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of AssignmentList;let i = index">
+                <td>{{item.softwareName}}</td>            
+                <td>{{item.hardwareName}}</td> 
+                <td><span class="btn btn-primary btn-xs" >
+                    <span class="nc-icon nc-simple-remove" (click)="deleteAssignment(i)"></span></span></td>
+               
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+    </div>
+    </ng-template>
+    <ng-template #confirm>
+      <div class="modal-body text-center">
+        <p>Do you want to Delete?</p>
+        <button type="button" class="btn btn-default" (click)="deleteAssignment()" >Yes</button>
+        <button type="button" class="btn btn-primary" (click)="onClose()" >No</button>
+      </div>
+    </ng-template>
+
+
+    <ng-template #show>
+        <div class="modal-body text-center">
+          <p>Do you want to Delete?</p>
+          
+          <button type="button" class="btn btn-primary" (click)="onClose()" >Cerrar</button>
+        </div>
+      </ng-template>
+  </div>
+  
