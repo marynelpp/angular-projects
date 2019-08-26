@@ -19,6 +19,8 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import {HardwareComponent} from '../../pages/hardware/hardware.component';
 import {SoftwareComponent} from '../../pages/software/software.component';
 import {AssignmentComponent} from '../../pages/assignment/assignment.component';
+import {LevelComponent} from '../../pages/level/level.component';
+import {TechnologyComponent} from '../../pages/technology/technology.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +42,9 @@ import {AssignmentComponent} from '../../pages/assignment/assignment.component';
     NotificationsComponent,
     HardwareComponent,
     SoftwareComponent,
-    AssignmentComponent
+    AssignmentComponent,
+    LevelComponent,
+    TechnologyComponent
    
   ],
   
