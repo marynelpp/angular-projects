@@ -9,13 +9,25 @@ import { GlobalService } from "../providers/global.service";
 })
 export class ActivityComponent implements OnInit {
 
-  dropdownList = [];
-  selectedItems = [];
-  dropdownSettings = {};
-
+  countries: any;
+  selectedCountry:any;
+  
   ngOnInit() {
-    this.getActivity();    
-  }
+    this.getActivity();
+        this.countries = [
+            { id: 1, name: "India"},
+            { id: 2, name: "USA" },
+            { id: 3, name: "China" },
+            { id: 4, name: "Japan" }
+        ];
+ 
+        this.selectedCountry = [{
+            id: 1,
+            name: "India"
+        }];
+    }
+    
+  
 
   title = 'AngularCRUDExample';
   UserList: any;
@@ -34,6 +46,7 @@ export class ActivityComponent implements OnInit {
     this.ActivityList = [];
   }
   OpenActivityModal(template: TemplateRef<any>, option, index: number) {
+    console.log(this.selectedCountry);
     this.activity = [];
 
 

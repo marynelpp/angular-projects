@@ -22,6 +22,8 @@ import {AssignmentComponent} from '../../pages/assignment/assignment.component';
 import {LevelComponent} from '../../pages/level/level.component';
 import {ActivityComponent} from '../../pages/activity/activity.component';
 import {TechnologyComponent} from '../../pages/technology/technology.component'
+import { NgxMultiselectModule } from '@ngx-lib/multiselect';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import {TechnologyComponent} from '../../pages/technology/technology.component'
     ReactiveFormsModule,
     NgbModule,
     ModalModule.forRoot(),
+    NgxMultiselectModule,
     NgbModalModule,
   ],
   declarations: [
