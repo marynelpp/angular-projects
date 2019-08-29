@@ -13,6 +13,7 @@ import { SoftwareComponent } from '../../pages/software/software.component';
 import { AssignmentComponent } from '../../pages/assignment/assignment.component';
 import {LevelComponent} from '../../pages/level/level.component';
 import {TechnologyComponent} from '../../pages/technology/technology.component';
+import {ActivityComponent} from '../../pages/activity/activity.component';
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'user', component: UserComponent },
@@ -26,5 +27,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'software', component: SoftwareComponent },
     { path: 'assignment', component: AssignmentComponent },
     { path: 'level', component: LevelComponent },
-    { path: 'technology', component: TechnologyComponent }
+    { path: 'technology', component: TechnologyComponent },
+    { path: 'activity', component: ActivityComponent }
 ];

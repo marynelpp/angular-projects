@@ -20,6 +20,7 @@ import {HardwareComponent} from '../../pages/hardware/hardware.component';
 import {SoftwareComponent} from '../../pages/software/software.component';
 import {AssignmentComponent} from '../../pages/assignment/assignment.component';
 import {LevelComponent} from '../../pages/level/level.component';
+import {ActivityComponent} from '../../pages/activity/activity.component';
 import {TechnologyComponent} from '../../pages/technology/technology.component'
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import {TechnologyComponent} from '../../pages/technology/technology.component'
     SoftwareComponent,
     AssignmentComponent,
     LevelComponent,
-    TechnologyComponent
+    TechnologyComponent,
+    ActivityComponent
    
   ],
   

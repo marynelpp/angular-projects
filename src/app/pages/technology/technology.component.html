@@ -17,8 +17,8 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of technologyList;let i = index">
-                  <td>{{item.id}}</td>
-                  <td>{{item.technologyName}}</td>
+                  <td>{{item.techId}}</td>
+                  <td>{{item.techName}}</td>
                   
                   <td><span class="btn btn-primary btn-xs" (click)="OpenTechnologyModal(template,'edit',i)">
                       <span class="nc-icon nc-ruler-pencil"></span></span></td>

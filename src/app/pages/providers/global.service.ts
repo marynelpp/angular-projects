@@ -26,8 +26,8 @@ export class GlobalService {
     tipo: String;
 
     constructor(public http: HttpClient, private toastr: ToastrService) {
-        //this.apiBaseUrl = 'https://localhost:44362/api'; //endpoint local
-        this.apiBaseUrl = 'https://jfalcon.azurewebsites.net/api'; //endpoint azure
+        //this.apiBaseUrl = 'https://localhost:44393/api'; //endpoint local
+        this.apiBaseUrl = 'http://aadan.azurewebsites.net/api'; //endpoint azure
     }
 
     getHeaderClear() {

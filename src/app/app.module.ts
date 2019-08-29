@@ -17,8 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    
     HttpClientModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
