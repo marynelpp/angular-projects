@@ -58,7 +58,6 @@ export class TechnologyComponent implements OnInit{
             },
             err => {
               console.log(err);
-              //this.loader.dismiss();
             }
           );
     }
@@ -66,7 +65,7 @@ export class TechnologyComponent implements OnInit{
     
   
     deleteTechnology() {
-      this.globalService.removeModel(this.technology.id,"/technology").then(
+      this.globalService.removeModel(this.technology.techId,"/technology").then(
         result => {
           console.log(result);
           this.getTechnologys();
@@ -74,7 +73,6 @@ export class TechnologyComponent implements OnInit{
         err => {
           console.log(err);
           
-          //this.loader.dismiss();
         }
       );
       
@@ -85,19 +83,18 @@ export class TechnologyComponent implements OnInit{
       console.log(this.technology)
       
       let postTechnology = {
-        'id': this.technology.id,
-        'technologyName': this.technology.technologyName,
+        'techId': this.technology.techId,
+        'techName': this.technology.techName,
         
       };
   
-      this.globalService.updateModel(this.technology.id,postTechnology, "/technology").then(
+      this.globalService.updateModel(this.technology.techId,postTechnology, "/technology").then(
         result => {
           console.log(result);
           this.getTechnologys();
         },
         err => {
           console.log(err);
-          //this.loader.dismiss();
         }
       );
      
@@ -109,7 +106,7 @@ export class TechnologyComponent implements OnInit{
       console.log(this.technology)
       
       let postTechnology = {
-        'technologyName': this.technology.technologyName,
+        'techName': this.technology.techName,
         
        
       };
@@ -121,7 +118,6 @@ export class TechnologyComponent implements OnInit{
         },
         err => {
           console.log(err);
-          //this.loader.dismiss();
         }
       );
      

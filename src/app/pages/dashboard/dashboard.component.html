@@ -21,96 +21,190 @@
     <!-- ========================================== -->
     <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Team Members</h4>
+          <h4 class="card- text-center">Team Members</h4>
         </div>
         <div class="card-body">
     <ngb-accordion [closeOthers]="true" >
         
-      <ngb-panel id="static-1" >
-          <ng-template ngbPanelTitle>
-              <div class="row">
-                  <div class="col-md-2 col-2">
-                    <div class="avatar">
-                      <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                    </div>
-                  </div>
-                  <div class="col-md-7 col-7">
-                    Creative Tim
-                    <br />
-                    <span class="text-success">
-                      <small>Available</small>
-                    </span>
-                  </div>
-                  <div class="col-md-3 col-3 text-right">
-                    <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-                  </div>
-                </div></ng-template>
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel id="static-2">
-         
-        <ng-template ngbPanelTitle>
-            <div class="row"><div class="col-md-2 col-2">
-              <div class="avatar">
-                <img src="assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-              </div>
-            </div>
-            <div class="col-md-7 col-7">
-              DJ Khaled
+ <!--list user with activity-->
+ <ngb-panel id="static-1" >
+    <ng-template ngbPanelTitle>
+        <div class="row">
+            <div>
+              Jesus Enrique
               <br />
-              <span class="text-muted">
-                <small>Offline</small>
+              <span class="text-success">
+                <small>Developer</small>
               </span>
             </div>
-            <div class="col-md-3 col-3 text-right">
-              <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-            </div></div>
-        </ng-template>
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel id="static-3" >
-          <ng-template ngbPanelTitle>
-              <div class="row">
-                  <div class="col-md-2 col-2">
-                    <div class="avatar">
-                      <img src="assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                    </div>
-                  </div>
-                  <div class="col-md-7 col-7">
-                    Creative Tim
-                    <br />
-                    <span class="text-success">
-                      <small>Available</small>
-                    </span>
-                  </div>
-                  <div class="col-md-3 col-3 text-right">
-                    <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-                  </div>
-                </div></ng-template>
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-    </ngb-accordion>
+            
+          </div></ng-template>
+  <ng-template ngbPanelContent>
+     <div class="table-responsive"> 
+       <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr>
+              <th scope="row">1</th>
+              <td>Perform Crud in ASP.NET MVC</td>
+              <td>accomplished</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Perform Crud in ASP.NET with angular</td>
+                <td>accomplished</td>
+              </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>create ticket system for new users</td>
+                <td>in process</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+  </ng-template>
+</ngb-panel>
+
+
+<ngb-panel id="static-2" >
+    <ng-template ngbPanelTitle>
+        <div class="row">
+            <div>
+              Jonathan Falcon
+              <br />
+              <span class="text-success">
+                <small>Developer</small>
+              </span>
+            </div>
+            
+          </div></ng-template>
+  <ng-template ngbPanelContent>
+     <div class="table-responsive"> 
+       <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr>
+              <th scope="row">1</th>
+              <td>Perform Crud in ASP.NET MVC</td>
+              <td>accomplished</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Perform Crud in ASP.NET with angular</td>
+                <td>accomplished</td>
+              </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>create ticket system for new users</td>
+                <td>in process</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+  </ng-template>
+</ngb-panel>
+
+  <ngb-panel id="static-3" >
+      <ng-template ngbPanelTitle>
+          <div class="row">
+              <div>
+                Angelica Adan
+                <br />
+                <span class="text-success">
+                  <small>Developer</small>
+                </span>
+              </div>
+              
+            </div></ng-template>
+    <ng-template ngbPanelContent>
+       <div class="table-responsive"> 
+         <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr>
+                <th scope="row">1</th>
+                <td>Perform Crud in ASP.NET MVC</td>
+                <td>accomplished</td>
+              </tr>
+              <tr>
+                  <th scope="row">2</th>
+                  <td>Perform Crud in ASP.NET with angular</td>
+                  <td>accomplished</td>
+                </tr>
+              <tr>
+                  <th scope="row">3</th>
+                  <td>create ticket system for new users</td>
+                  <td>in process</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+    </ng-template>
+  </ngb-panel>
+
+   <ngb-panel id="static-4" >
+      <ng-template ngbPanelTitle>
+          <div class="row">
+              <div>
+                Luis Paredes
+                <br />
+                <span class="text-success">
+                  <small>Developer</small>
+                </span>
+              </div>
+              
+            </div></ng-template>
+    <ng-template ngbPanelContent>
+       <div class="container table-responsive"> 
+         <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr>
+                <th scope="row">1</th>
+                <td>Perform Crud in ASP.NET MVC</td>
+                <td>accomplished</td>
+              </tr>
+              <tr>
+                  <th scope="row">2</th>
+                  <td>Perform Crud in ASP.NET with angular</td>
+                  <td>accomplished</td>
+                </tr>
+              <tr>
+                  <th scope="row">3</th>
+                  <td>create ticket system for new users</td>
+                  <td>in process</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+    </ng-template>
+  </ngb-panel>
+
+</ngb-accordion>
   </div>
 </div>  </div>
 </div>

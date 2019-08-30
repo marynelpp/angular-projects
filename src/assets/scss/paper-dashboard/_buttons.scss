@@ -176,12 +176,11 @@
     }
 }
 
-.btn-link{
-  border: $none;
-  padding: $padding-base-vertical $padding-base-horizontal;
-  background-color: $transparent-bg;
+.btn-link {
+    border: 0;
+    padding: 0rem 9.7rem;
+    background-color: transparent;
 }
-
 .btn-lg{
    @include btn-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $border-radius-large);
 }
