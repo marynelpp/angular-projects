@@ -66,7 +66,7 @@ export class LevelComponent implements OnInit{
     
   
     deleteLevel() {
-      this.globalService.removeModel(this.level.id,"/level").then(
+      this.globalService.removeModel(this.level.levelId,"/level").then(
         result => {
           console.log(result);
           this.getLevels();
@@ -85,12 +85,12 @@ export class LevelComponent implements OnInit{
       console.log(this.level)
       
       let postLevel = {
-        'id': this.level.id,
+        'levelId': this.level.id,
         'levelName': this.level.levelName,
         
       };
   
-      this.globalService.updateModel(this.level.id,postLevel, "/level").then(
+      this.globalService.updateModel(this.level.levelId,postLevel, "/level").then(
         result => {
           console.log(result);
           this.getLevels();

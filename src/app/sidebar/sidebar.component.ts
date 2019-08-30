@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user',          title: 'User',      icon:'nc-single-02',  class: '' },
     { path: '/level',         title: 'Level',        icon:'nc-tile-56',    class: '' },
     { path: '/technology',         title: 'Techonology',        icon:'nc-tile-56',    class: '' },
-    { path: '/assignment',         title: 'Assignments',        icon:'nc-tile-56',    class: '' },
+    { path: '/activity',         title: 'Activity',        icon:'nc-tile-56',    class: '' },
   
 ];
 
