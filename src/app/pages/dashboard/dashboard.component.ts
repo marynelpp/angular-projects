@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit{
   public isCollapsed = true;
   public labels:any;
     ngOnInit(){
-      this.chartColor = "#FFFFFF";
+      // this.chartColor = "#FFFFFF";
       this.labels= ["title 2","title", "test", "more test"];
       
     }
