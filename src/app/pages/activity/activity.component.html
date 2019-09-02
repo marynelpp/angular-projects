@@ -14,22 +14,29 @@
           <div class="table-responsive">
             <table id="mytable" class="table table-bordred table-striped">
               <thead>
-               
+
+                <th>Activity Id</th>
                 <th>Suject</th>
                 <th>Description</th>
                 <th>Level</th>
                 <th>Tecnology</th>
+                <th>Edit</th>
+                <th>Delete</th>
             
               </thead>
               <tbody>
-                <tr *ngFor="let item of UserList;let i = index">
+                <tr *ngFor="let item of ActivityList;let i = index">
                   
-                  <td>{{item.userName}}</td>
-                  <td>{{item.name}}</td>
-                  <td>{{item.lastName}}</td>            
-                  <td>{{item.lastSessionDateTime | date}}</td> 
+                  
+                  <td>{{item.activId}}</td>
+                  <td>{{item.subjet}}</td>
+                  <td>{{item.description}}</td>            
+                  <td>{{item.levelId}}</td>
+                  <td></td> 
                   <td><span class="btn btn-primary btn-xs" (click)="OpenActivityModal(template,'edit',i)">
                       <span class="nc-icon nc-ruler-pencil"></span></span></td>
+                  <td><span class="btn btn-danger btn-xs" (click)="OpenActivityModal(confirm,'delete', i)">
+                      <span class="nc-icon nc-simple-remove"></span></span></td>
                  
                 </tr>
               </tbody>
@@ -53,7 +60,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Subject</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control"  [(ngModel)]="Activity"/>
+                  <input type="text" class="form-control"  [(ngModel)]="activity.subjet"/>
                 </div>
               </div>
               
@@ -62,18 +69,21 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control"  [(ngModel)]="Activity"/>
+                  <input type="text" class="form-control"  [(ngModel)]="activity.description"/>
                 </div>
               </div>
-          <div class="form-group">
-            <label class="col-sm-7 control-label" >Select level</label>
-            <select class="form-control"  [(ngModel)]="Activity">
-             <option *ngFor="let item of nivelList; let i = index" [ngValue]="activity">
-                {{nivelList[i].nivelName}}
-              </option>
-             </select>
-          </div>
-          
+
+              
+              <div class="form-group">
+                  <label class="col-sm-2 control-label" >Level</label>
+                  <select class="form-control"   [(ngModel)]="activity.levelId" (ngModelChange)="showActivity()">
+                   <option *ngFor="let item of levelList; let i = index" [ngValue]="levelList[i].levelId">
+                      {{levelList[i].levelName}}
+                    </option>
+                   </select>
+                </div>
+
+            
           <div class="form-group">
             <label class="col-sm-7 control-label" >Select Tecnology </label>
           <ngx-multiselect

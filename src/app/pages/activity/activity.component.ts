@@ -13,7 +13,7 @@ export class ActivityComponent implements OnInit {
   selectedCountry:any;
   
   ngOnInit() {
-    this.getActivity();
+      this.getActivity();
         this.countries = [
             { id: 1, name: "India"},
             { id: 2, name: "USA" },
@@ -88,7 +88,7 @@ export class ActivityComponent implements OnInit {
     );
 
 
-    this.globalService.getModel("/hardware").then(
+    /*this.globalService.getModel("/hardware").then(
       result => {
         console.log(result);
         this.HardwareList = result;
@@ -97,7 +97,7 @@ export class ActivityComponent implements OnInit {
         console.log(err);
         //this.loader.dismiss();
       }
-    );
+    );*/
     this.globalService.getModel("/level").then(
       result => {
         console.log(result);
@@ -139,7 +139,7 @@ export class ActivityComponent implements OnInit {
     this.globalService.addModel(postAss, "/activity/delete").then(
       result => {
         console.log(result);
-        // this.getActivity();
+        this.getActivity();
         this.showActivity();
       },
       err => {
@@ -156,12 +156,10 @@ export class ActivityComponent implements OnInit {
     console.log(this.user)
 
     let postUser = {
-      'id': this.user.id,
-      'userName': this.user.userName,
-      'Name': this.user.name,
-      'lastName': this.user.lastName,
-      'Age': this.user.age,
-      'lastSessionDateTime': '2019-08-05T15:02:29.393'
+      'activId': this.activity.activId,
+      'subjet': this.activity.subjet,
+      'description': this.activity.description,
+      'levelId': this.activity.levelId,
     };
 
     this.globalService.updateModel(this.user.id, postUser, "/activity").then(
