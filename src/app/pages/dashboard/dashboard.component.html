@@ -1,17 +1,18 @@
+<h2 class="text-center">Activities to assign to agent</h2>
 <div class="row">
 
   <div class="col-md-8">
  <div class="row">
-<div class="col-sm-6" *ngFor="let item of labels;let i = index">
+<div class="col-sm-6" *ngFor="let item of ActivityList;let i = index">
     <div class="card">
       <div class="card-body">
-          <li class="list-group-item" style="background-color:#17b8989e"><b>Subject:</b> Cras justo odio</li>
+          <li class="list-group-item" style="background-color:#495057; color: #fff;"><b>#: </b> {{item.activId}} <b>  Subject:</b> {{item.subjet}}</li>
           <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>Description: </b>{{item}}</li>
-          <li class="list-group-item"><b>Level: </b>Cras justo odio lo</li>
+          <li class="list-group-item"><b>Description: </b>{{item.description}}</li>
+          <li class="list-group-item"><b>Level: </b>{{levelList[i]?.levelName}}</li>
           <li class="list-group-item"><b>Tecnology: </b>Dapibus ac facilisis in</li>
           </ul>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="text-center"><a href="#"  class="btn btn-outline-primary">Assign</a></div>
       </div>
     </div>
   </div>
@@ -20,19 +21,19 @@
 
   <div class="col md-8">
     <!-- ========================================== -->
-    <div class="card">
+    <div class="card" style=" background: linear-gradient(to right, #17a2b8,#b7a33e);">
         <div class="card-header">
-          <h4 class="card- text-center">Team Members</h4>
+          <h4 class="card- text-center">Agents List</h4>
         </div>
         <div class="card-body">
-    <ngb-accordion [closeOthers]="true" >
+    <ngb-accordion [closeOthers]="true" class="text-center">
         
  <!--list user with activity-->
- <ngb-panel id="static-1" >
-    <ng-template ngbPanelTitle>
-        <div class="row">
-            <div>
-              Jesus Enrique
+ <ngb-panel *ngFor="let item of UserList;let i = index">
+    <ng-template ngbPanelTitle >
+        <div class="row " >
+            <div >
+              {{item.name}}  {{item.lastName}}
               <br />
               <span class="text-success">
                 <small>Developer</small>
@@ -72,138 +73,6 @@
   </ng-template>
 </ngb-panel>
 
-
-<ngb-panel id="static-2" >
-    <ng-template ngbPanelTitle>
-        <div class="row">
-            <div>
-              Jonathan Falcon
-              <br />
-              <span class="text-success">
-                <small>Developer</small>
-              </span>
-            </div>
-            
-          </div></ng-template>
-  <ng-template ngbPanelContent>
-     <div class="table-responsive"> 
-       <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Subject</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-             <tr>
-              <th scope="row">1</th>
-              <td>Perform Crud in ASP.NET MVC</td>
-              <td>accomplished</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Perform Crud in ASP.NET with angular</td>
-                <td>accomplished</td>
-              </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>create ticket system for new users</td>
-                <td>in process</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-  </ng-template>
-</ngb-panel>
-
-  <ngb-panel id="static-3" >
-      <ng-template ngbPanelTitle>
-          <div class="row">
-              <div>
-                Angelica Adan
-                <br />
-                <span class="text-success">
-                  <small>Developer</small>
-                </span>
-              </div>
-              
-            </div></ng-template>
-    <ng-template ngbPanelContent>
-       <div class="table-responsive"> 
-         <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-               <tr>
-                <th scope="row">1</th>
-                <td>Perform Crud in ASP.NET MVC</td>
-                <td>accomplished</td>
-              </tr>
-              <tr>
-                  <th scope="row">2</th>
-                  <td>Perform Crud in ASP.NET with angular</td>
-                  <td>accomplished</td>
-                </tr>
-              <tr>
-                  <th scope="row">3</th>
-                  <td>create ticket system for new users</td>
-                  <td>in process</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-    </ng-template>
-  </ngb-panel>
-
-   <ngb-panel id="static-4" >
-      <ng-template ngbPanelTitle>
-          <div class="row">
-              <div>
-                Luis Paredes
-                <br />
-                <span class="text-success">
-                  <small>Developer</small>
-                </span>
-              </div>
-              
-            </div></ng-template>
-    <ng-template ngbPanelContent>
-       <div class="container table-responsive"> 
-         <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-               <tr>
-                <th scope="row">1</th>
-                <td>Perform Crud in ASP.NET MVC</td>
-                <td>accomplished</td>
-              </tr>
-              <tr>
-                  <th scope="row">2</th>
-                  <td>Perform Crud in ASP.NET with angular</td>
-                  <td>accomplished</td>
-                </tr>
-              <tr>
-                  <th scope="row">3</th>
-                  <td>create ticket system for new users</td>
-                  <td>in process</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-    </ng-template>
-  </ngb-panel>
 
 </ngb-accordion>
   </div>
