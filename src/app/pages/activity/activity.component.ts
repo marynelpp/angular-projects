@@ -14,22 +14,9 @@ export class ActivityComponent implements OnInit {
   
   ngOnInit() {
       this.getActivity();
-        this.countries = [
-            { id: 1, name: "India"},
-            { id: 2, name: "USA" },
-            { id: 3, name: "China" },
-            { id: 4, name: "Japan" }
-        ];
- 
-        this.selectedCountry = [{
-            id: 1,
-            name: "India"
-        }];
-
         this.getTechnologys();
     }
     
-  
 
   title = 'AngularCRUDExample';
   UserList: any;
@@ -44,23 +31,20 @@ export class ActivityComponent implements OnInit {
   titleModal: string = "";
   save: boolean = false;
   edit: boolean = false;
-  techActiv: any;
+  technologies: any;
   constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
     this.user = [];
     this.activity = [];
     this.ActivityList = [];
     this.technology= [];
     this.technologyList = [];
-    this.techActiv=[];
+    this.technologies=[];
   }
 
   
-
-
-
   OpenActivityModal(template: TemplateRef<any>, option, index: number) {
     console.log(this.selectedCountry);
-    this.activity = [];
+    //this.activity = [];
 
 
     if (option === "save") {
@@ -143,7 +127,7 @@ export class ActivityComponent implements OnInit {
 
   showActivity() {
     console.log(this.activity);
-    this.globalService.getModel("/activity/user/" + this.activity.UserID).then(
+    this.globalService.getModel("/activity/" + this.activity.activId).then(
       result => {
         console.log(result);
         this.ActivityList = result;
@@ -161,13 +145,14 @@ export class ActivityComponent implements OnInit {
     this.activity.hardwareID = this.ActivityList[index].hardwareID;
     this.activity.levelID = this.ActivityList[index].levelID;
     console.log(this.activity);
-    let postAss = {
-      "userID": this.activity.UserID,
-      "levelId": this.activity.levelId,
-      "hardwareID": this.activity.HardwareID,
+    let postActivity = {
+      'activId': this.activity.activId,
+      'subjet': this.activity.subjet,
+      'description': this.activity.description,
+      'levelId': this.activity.levelId,
     };
 
-    this.globalService.addModel(postAss, "/activity/delete").then(
+    this.globalService.addModel(postActivity, "/activity/delete").then(
       result => {
         console.log(result);
         this.getActivity();
@@ -210,36 +195,21 @@ export class ActivityComponent implements OnInit {
 
   saveActivity() {
     console.log(this.activity)
-
+    let arraytech=[];
+    this.technologyList.map(item=>{
+      arraytech.push(item.techId)
+      })
     let postActivity  = {
-      "activId": this.activity.activId,
-      "subject": this.activity.subject,
+      "subjet": this.activity.subjet,
       "description": this.activity.description,
       "levelId": this.activity.levelId,
-      
+      "technologies": arraytech
     };
 
-    let postActtech  = {
-      "activId": this.activity.activId,
-      "techId": this.activity.techId,
-      
-    };
-    console.log(postActivity );
+    
+    console.log(postActivity);
 
     this.globalService.addModel(postActivity , "/activity").then(
-      result => {
-        console.log(result);
-        //this.getactivity();
-        this.showActivity();
-      },
-      err => {
-        console.log(err);
-      }
-    );
-    this.activity.levelID = null;
-    this.activity.HardwareID = null;
-    
-    this.globalService.addModel(postActtech , "/activity").then(
       result => {
         console.log(result);
         //this.getactivity();
