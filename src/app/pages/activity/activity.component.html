@@ -31,7 +31,7 @@
                   <td>{{item.activId}}</td>
                   <td>{{item.subjet}}</td>
                   <td>{{item.description}}</td>            
-                  <td>{{item.levelId}}</td>
+                  <td>{{levelList[i].levelName}}</td>
                   <td></td> 
                   <td><span class="btn btn-primary btn-xs" (click)="OpenActivityModal(template,'edit',i)">
                       <span class="nc-icon nc-ruler-pencil"></span></span></td>
@@ -87,8 +87,8 @@
           <div class="form-group">
             <label class="col-sm-7 control-label" >Select Tecnology </label>
           <ngx-multiselect
-            [(ngModel)]="selectedCountry"
-            [options]="countries"
+            [(ngModel)]="techActiv"
+            [options]="technology"
             ngDefaultControl>
           </ngx-multiselect>
           </div>
@@ -99,7 +99,7 @@
           
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
-          <div *ngIf="save"><button (click)="saveActivity()" type="submit" class="btn btn-primary">Activity</button></div>
+          <div *ngIf="save"><button (click)="saveActivity()" type="submit" class="btn btn-primary">Save</button></div>
           <div *ngIf="edit"><button (click)="editActivity()" type="submit" class="btn btn-primary">Edit</button></div>
         </div>
        <!-- <div class="table-responsive">
