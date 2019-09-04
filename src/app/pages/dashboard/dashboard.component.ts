@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import Chart from 'chart.js';
 import { GlobalService } from "../providers/global.service";
+import { RemoteService } from "../providers/remote.service";
 
 @Component({
     selector: 'dashboard-cmp',
@@ -22,15 +23,30 @@ export class DashboardComponent implements OnInit{
   ActivityList: any;
   activity: any[];
   levelList: any;
+  UserList: any;
+
     ngOnInit(){
       this.chartColor = "#FFFFFF";
       this.getActivity();
+      this.getUser();
     } 
 
-    constructor(private globalService: GlobalService) {
+    constructor(private globalService: GlobalService, private remoteService: RemoteService) {
       this.activity = [];
       this.ActivityList = [];
       this.levelList=[];
+      this.UserList = [];
+    }
+    getUser() {
+      this.remoteService.getModel("/users").then(
+        result => {
+          console.log(result);
+          this.UserList = result;
+        },
+        err => {
+          console.log(err);
+        }
+      );
     }
     getActivity() {
       this.globalService.getModel("/activity").then(

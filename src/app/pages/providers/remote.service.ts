@@ -18,7 +18,7 @@ const httpOptionsDefault = {
     providedIn: 'root'
 })
 
-export class GlobalService {
+export class RemoteService {
 
     apiBaseUrl: String = '';
     ModelId;
