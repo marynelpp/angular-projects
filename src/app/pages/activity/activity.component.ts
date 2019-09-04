@@ -25,6 +25,8 @@ export class ActivityComponent implements OnInit {
             id: 1,
             name: "India"
         }];
+
+        this.getTechnologys();
     }
     
   
@@ -34,17 +36,28 @@ export class ActivityComponent implements OnInit {
   HardwareList: any;
   levelList: any;
   ActivityList: any;
+  technologyList: any;
+  technology:any;
   activity: any;
   bsModalRef: BsModalRef;
   user: any;
   titleModal: string = "";
   save: boolean = false;
   edit: boolean = false;
+  techActiv: any;
   constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
     this.user = [];
     this.activity = [];
     this.ActivityList = [];
+    this.technology= [];
+    this.technologyList = [];
+    this.techActiv=[];
   }
+
+  
+
+
+
   OpenActivityModal(template: TemplateRef<any>, option, index: number) {
     console.log(this.selectedCountry);
     this.activity = [];
@@ -87,6 +100,8 @@ export class ActivityComponent implements OnInit {
       }
     );
 
+    
+
 
     /*this.globalService.getModel("/hardware").then(
       result => {
@@ -109,6 +124,22 @@ export class ActivityComponent implements OnInit {
       }
     );
   }
+
+  getTechnologys() {
+    this.globalService.getModel("/technology").then(
+        result => {
+          console.log(result);
+          this.technologyList = result;
+          this.technologyList.map(item=>{
+            this.technology.push({ id: item.techId, name: item.techName})
+          })
+        },
+        err => {
+          console.log(err);
+        }
+      );
+}
+  
 
   showActivity() {
     console.log(this.activity);
@@ -155,14 +186,14 @@ export class ActivityComponent implements OnInit {
   editActivity(index) {
     console.log(this.user)
 
-    let postUser = {
+    let postActivity = {
       'activId': this.activity.activId,
       'subjet': this.activity.subjet,
       'description': this.activity.description,
       'levelId': this.activity.levelId,
     };
 
-    this.globalService.updateModel(this.user.id, postUser, "/activity").then(
+    this.globalService.updateModel(this.user.id, postActivity , "/activity").then(
       result => {
         console.log(result);
         this.getActivity();
@@ -180,14 +211,22 @@ export class ActivityComponent implements OnInit {
   saveActivity() {
     console.log(this.activity)
 
-    let postAss = {
-      "userID": this.activity.UserID,
+    let postActivity  = {
+      "activId": this.activity.activId,
+      "subject": this.activity.subject,
+      "description": this.activity.description,
       "levelId": this.activity.levelId,
-      "hardwareID": this.activity.HardwareID,
+      
     };
-    console.log(postAss);
 
-    this.globalService.addModel(postAss, "/activity").then(
+    let postActtech  = {
+      "activId": this.activity.activId,
+      "techId": this.activity.techId,
+      
+    };
+    console.log(postActivity );
+
+    this.globalService.addModel(postActivity , "/activity").then(
       result => {
         console.log(result);
         //this.getactivity();
@@ -199,6 +238,17 @@ export class ActivityComponent implements OnInit {
     );
     this.activity.levelID = null;
     this.activity.HardwareID = null;
+    
+    this.globalService.addModel(postActtech , "/activity").then(
+      result => {
+        console.log(result);
+        //this.getactivity();
+        this.showActivity();
+      },
+      err => {
+        console.log(err);
+      }
+    );
 
   }
 
