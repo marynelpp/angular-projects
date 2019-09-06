@@ -43,8 +43,7 @@ export class ActivityComponent implements OnInit {
 
   
   OpenActivityModal(template: TemplateRef<any>, option, index: number) {
-    console.log(this.selectedCountry);
-    //this.activity = [];
+    this.activity = [];
 
 
     if (option === "save") {
@@ -58,16 +57,14 @@ export class ActivityComponent implements OnInit {
         console.log(this.ActivityList[index])
         this.activity = this.ActivityList[index];
         this.activity.activId = this.activity.activId
-        this.showActivity();
+        //this.showActivity();
         console.log(this.activity);
       } else
         if (option === 'delete') {
 
-          this.activity.hardwareID = this.ActivityList[index].hardwareID;
-          this.activity.levelID = this.ActivityList[index].levelID;
+          this.activity.activId = this.ActivityList[index].levelID;
         }
 
-    this.ActivityList = [];
     this.bsModalRef = this.bsModalService.show(template);
 
   }
@@ -194,10 +191,12 @@ export class ActivityComponent implements OnInit {
 
 
   saveActivity() {
-    console.log(this.activity)
+    console.log(this.technologies)
     let arraytech=[];
-    this.technologyList.map(item=>{
-      arraytech.push(item.techId)
+    this.technologies.map(item=>{
+      arraytech.push(item.id)
+
+      
       })
     let postActivity  = {
       "subjet": this.activity.subjet,
