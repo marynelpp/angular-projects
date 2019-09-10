@@ -19,7 +19,6 @@
                 <th>Suject</th>
                 <th>Description</th>
                 <th>Level</th>
-                <th>Tecnology</th>
                 <th>Edit</th>
                 <th>Delete</th>
             
@@ -31,8 +30,7 @@
                   <td>{{item.activId}}</td>
                   <td>{{item.subjet}}</td>
                   <td>{{item.description}}</td>            
-                  <td></td>
-                  <td></td>
+                  <td>{{item.levelName}}</td>
                   <td><span class="btn btn-primary btn-xs" (click)="OpenActivityModal(template,'edit',i)">
                       <span class="nc-icon nc-ruler-pencil"></span></span></td>
                   <td><span class="btn btn-danger btn-xs" (click)="OpenActivityModal(confirm,'delete', i)">
