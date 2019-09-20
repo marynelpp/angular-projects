@@ -8,7 +8,7 @@ const httpOptionsDefault = {
 
         // 'accessToken':localStorage.getItem('accessToken'),
 
-        //'Authorization': 'Basic '+btoa('jchiquin:12345'),
+        'Authorization': 'Basic '+btoa('luisdiego@tmconsulting.mx:tramar2014'),
         'Content-Type': 'application/json',
 
     })
@@ -26,7 +26,7 @@ export class RemoteService {
     tipo: String;
 
     constructor(public http: HttpClient, private toastr: ToastrService) {
-        this.apiBaseUrl = 'https://jelias.azurewebsites.net/api'; //endpoint local
+        this.apiBaseUrl = 'https://tmconsulting.freshdesk.com/api'; //endpoint local
        
     }
 

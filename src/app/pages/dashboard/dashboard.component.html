@@ -28,11 +28,11 @@
     <ngb-accordion [closeOthers]="true" class="text-center">
         
  <!--list user with activity-->
- <ngb-panel *ngFor="let item of UserList;let i = index">
+ <ngb-panel *ngFor="let item of UserList; index as i">
     <ng-template ngbPanelTitle >
         <div class="row " >
             <div >
-              {{item.name}}  {{item.lastName}}
+              {{item.contact.name}}
               <br />
               <span class="text-success">
                 <small>Developer</small>

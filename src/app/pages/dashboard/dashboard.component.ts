@@ -11,6 +11,7 @@ import { RemoteService } from "../providers/remote.service";
 
 export class DashboardComponent implements OnInit{
 
+  pageActual: number = 1;
   public canvas : any;
   public ctx;
   public chartColor;
@@ -38,7 +39,7 @@ export class DashboardComponent implements OnInit{
       this.UserList = [];
     }
     getUser() {
-      this.remoteService.getModel("/users").then(
+      this.remoteService.getModel("/v2/agents").then(
         result => {
           console.log(result);
           this.UserList = result;

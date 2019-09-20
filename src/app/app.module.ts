@@ -15,20 +15,18 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-   
-  
-    
-    
   ],
   
   imports: [
-    BrowserModule,
+    BrowserModule,NgxPaginationModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes,{
