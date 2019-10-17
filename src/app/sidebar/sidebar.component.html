@@ -1,5 +1,5 @@
 
-<div style="background-image: url(assets/img/fondo4.png);" class="sidebar-wrapper">
+<div style="background-color: #6c757d;" class="sidebar-wrapper sidebar-transparent">
   <div class="logo">
     <a href="http://www.creative-tim.com" class="simple-text logo-mini">
 
@@ -7,16 +7,52 @@
         <img src="assets/img/TM_logo_white.png">
       </div>
     </a>
-    <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-      Users Admin
+    <a href="" class="simple-text logo-normal">
+      Portal Prospecto
     </a>
   </div>
     <ul class="nav">
-        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+      
+        <div class="container">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+            <h5 style="color: white;">Filter</h5>
+            <h5 style="color: white;">Software</h5>  
+            <form>
+                <div class="input-group">
+                  <input type="text" value="" class="form-control" placeholder="Search...">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <i style="color: black" class="nc-icon nc-zoom-split"></i>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            <br>
+            <ul class="list-group" id="myList">
+              <li class="list-group-item">
+                <div class="custom-control custom-checkbox mb-3">
+                  <input class="custom-control-input" id="customCheck2" type="checkbox" checked>
+                  <label class="custom-control-label" for="customCheck2">
+                    <span>.Net</span>
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="custom-control custom-checkbox mb-3">
+                  <input class="custom-control-input" id="customCheck2" type="checkbox" checked>
+                  <label class="custom-control-label" for="customCheck2">
+                    <span>Sap</span>
+                  </label>
+                </div>
+              </li>
+            </ul>  
+          </div>
+      
+       <!-- <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
             <a [routerLink]="[menuItem.path]">
                 <i class="nc-icon {{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
-        </li>
+        </li>-->
     </ul>
 </div>

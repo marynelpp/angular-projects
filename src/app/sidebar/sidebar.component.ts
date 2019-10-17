@@ -26,7 +26,22 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
+
+    countries;
+    selectedCountry;
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+
+        this.countries = [
+            { id: 1, name: "India"},
+            { id: 2, name: "USA" },
+            { id: 3, name: "China" },
+            { id: 4, name: "Japan" }
+        ];
+        
+        this.selectedCountry = [{
+            id: 1,
+            name: "India"
+        }];
     }
 }

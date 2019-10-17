@@ -9,12 +9,29 @@ import { GlobalService } from "../providers/global.service";
 })
 export class ActivityComponent implements OnInit {
 
-  countries: any;
-  selectedCountry:any;
+  //countries: any;
+  //selectedCountry:any;
+
+  countries;
+    selectedCountry;
+
+  
   
   ngOnInit() {
       this.getActivity();
         this.getTechnologys();
+
+        this.countries = [
+          { id: 1, name: "India"},
+          { id: 2, name: "USA" },
+          { id: 3, name: "China" },
+          { id: 4, name: "Japan" }
+      ];
+      
+      this.selectedCountry = [{
+          id: 1,
+          name: "India"
+      }];
     }
     
 
