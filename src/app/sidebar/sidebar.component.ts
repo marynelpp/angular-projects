@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import noUiSlider from "nouislider";
 
 
 export interface RouteInfo {
@@ -24,16 +26,43 @@ export const ROUTES: RouteInfo[] = [
     templateUrl: 'sidebar.component.html',
 })
 
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, AfterViewInit {
     public menuItems: any[];
 
     countries;
     selectedCountry;
+    city;
+    selectedCity;
+
+    ngAfterViewInit(){
+        var slider = document.getElementById("input-slider");
+  
+        noUiSlider.create(slider, {
+          start: 40,
+          connect: [true, false],
+          range: {
+            min: 0,
+            max: 100
+          }
+        });
+  
+        var slider2 = document.getElementById("input-slider-range");
+  
+        noUiSlider.create(slider2, {
+          start: [20, 60],
+          connect: true,
+          range: {
+            min: 0,
+            max: 100
+          }
+        });
+      }
+  
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
 
         this.countries = [
-            { id: 1, name: "India"},
+            { id: 1, name: "Mexico"},
             { id: 2, name: "USA" },
             { id: 3, name: "China" },
             { id: 4, name: "Japan" }
@@ -41,7 +70,20 @@ export class SidebarComponent implements OnInit {
         
         this.selectedCountry = [{
             id: 1,
-            name: "India"
+            name: "Mexico"
         }];
+
+        this.city = [
+            { id: 1, name: "Siquisique"},
+            { id: 2, name: "Barquisimeto" },
+            { id: 3, name: "Acarigua" },
+        ];
+        
+        this.selectedCity = [{
+            id: 2,
+            name: "Barquisimeto"
+        }];
+
+        
     }
 }

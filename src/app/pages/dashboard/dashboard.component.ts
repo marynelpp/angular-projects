@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import Chart from 'chart.js';
 import { GlobalService } from "../providers/global.service";
 import { RemoteService } from "../providers/remote.service";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
     selector: 'dashboard-cmp',
@@ -11,6 +11,7 @@ import { RemoteService } from "../providers/remote.service";
 
 export class DashboardComponent implements OnInit{
 
+  bsModalRef: BsModalRef;
   pageActual: number = 1;
   public canvas : any;
   public ctx;
@@ -32,11 +33,17 @@ export class DashboardComponent implements OnInit{
       this.getUser();
     } 
 
-    constructor(private globalService: GlobalService, private remoteService: RemoteService) {
+    constructor(private globalService: GlobalService, private remoteService: RemoteService, private bsModalService: BsModalService) {
       this.activity = [];
       this.ActivityList = [];
       this.levelList=[];
       this.UserList = [];
+    }
+
+    OpenTechnologyModal(template: TemplateRef<any>, option, index:number) {
+      
+      this.bsModalRef = this.bsModalService.show(template);
+      
     }
     getUser() {
       this.remoteService.getModel("/v2/agents").then(

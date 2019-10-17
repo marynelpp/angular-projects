@@ -1,25 +1,20 @@
 
-<div style="background-color: #6c757d;" class="sidebar-wrapper sidebar-transparent">
+<div style="background-color: #6c757d; width: 280px; "  class="sidebar-wrapper sidebar-transparent">
   <div class="logo">
     <a href="http://www.creative-tim.com" class="simple-text logo-mini">
 
-      <div class="logo-image-small">
-        <img src="assets/img/TM_logo_white.png">
-      </div>
+      <i class="fa fa-filter" aria-hidden="true"></i>
     </a>
     <a href="" class="simple-text logo-normal">
-      Portal Prospecto
+      Filter
     </a>
   </div>
-  <div class="input-slider-container">
-      <div id="input-slider" class="input-slider" ></div>
-    </div>
     <ul class="nav">
       
         <div class="container">
-            <i class="fa fa-filter" aria-hidden="true"></i>
-            <h5 style="color: white;">Filter</h5>
-            <h5 style="color: white;">Software</h5>  
+           
+           
+            <h6 style="color: white;">Software</h6>  
             <form>
                 <div class="input-group">
                   <input type="text" value="" class="form-control" placeholder="Search...">
@@ -30,33 +25,56 @@
                   </div>
                 </div>
               </form>
+                  <h6 style="color: white;">Country</h6>
+                  <div class="input-group-append justify-content-center">  
+                <ngx-multiselect
+                  [(ngModel)]="selectedCountry"
+                  [options]="countries"
+                  ngDefaultControl>
+                </ngx-multiselect>
+              </div>
             <br>
-            <ul class="list-group" id="myList">
-              <li class="list-group-item">
-                <div class="custom-control custom-checkbox mb-3">
-                  <input class="custom-control-input" id="customCheck2" type="checkbox" checked>
-                  <label class="custom-control-label" for="customCheck2">
-                    <span>.Net</span>
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="custom-control custom-checkbox mb-3">
-                  <input class="custom-control-input" id="customCheck2" type="checkbox" checked>
-                  <label class="custom-control-label" for="customCheck2">
-                    <span>Sap</span>
-                  </label>
-                </div>
-              </li>
-            </ul>  
+            <h6 style="color: white;">City</h6>
+                  <div class="d-flex justify-content-center my-2">  
+                <ngx-multiselect
+                  [(ngModel)]="selectedCity"
+                  [options]="city"
+                  ngDefaultControl>
+                </ngx-multiselect>
+              </div>
+            <br>
+            <h6 style="color: white;">Years of experience</h6>
+            <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                <form class="range-field w-75">
+            <input type="range" class="custom-range" value="0" min="0" max="100" id="customRange1">
+          </form>
+          <span class="font-weight-bold indigo-text ml-2 mt-1">100</span>
           </div>
-
-          
-       <!-- <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-            <a [routerLink]="[menuItem.path]">
-                <i class="nc-icon {{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>-->
+            <h6 style="color: white;">Level of Experience</h6>
+            <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                <form class="range-field w-75">
+            <input type="range" class="custom-range" id="customRange1">
+          </form>
+          <span class="font-weight-bold indigo-text ml-2 mt-1">10</span>
+          </div>
+            <h6 style="color: white;">Age</h6>
+            <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                <form class="range-field w-75">
+            <input type="range" class="custom-range" id="customRange1">
+          </form>
+          <span class="font-weight-bold indigo-text ml-2 mt-1">100</span>
+          </div>
+            <h6 style="color: white;">Salary range</h6>
+            <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">$0</span>
+                <form class="range-field w-75">
+            <input type="range" class="custom-range" id="customRange1">
+          </form>
+          <span class="font-weight-bold indigo-text ml-2 mt-1">$10000</span>
+          </div>
+          </div>
     </ul>
 </div>
