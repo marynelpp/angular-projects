@@ -1,6 +1,7 @@
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import noUiSlider from "nouislider";
+import { SliderType } from "igniteui-angular";
 
 
 export interface RouteInfo {
@@ -28,7 +29,8 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit, AfterViewInit {
     public menuItems: any[];
-
+    public sliderType = SliderType;
+    public priceRange: PriceRange = new PriceRange(200, 800);
     countries;
     selectedCountry;
     city;
@@ -86,4 +88,11 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
         
     }
+}
+class PriceRange {
+  constructor(
+    public lower: number,
+    public upper: number,
+  ) {
+  }
 }
