@@ -1,7 +1,24 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
+
+
+export interface RouteInfo {
+  path: string;
+  title: string;
+  icon: string;
+  class: string;
+}
+
+export const ROUTES: RouteInfo[] = [
+
+  { path: '/dashboard',          title: 'Dashboard',      icon:'nc-single-02',  class: '' },
+  { path: '/user',          title: 'User',      icon:'nc-single-02',  class: '' },
+  { path: '/software',         title: 'Software',        icon:'nc-tile-56',    class: '' },
+  { path: '/technology',         title: 'Techonology',        icon:'nc-tile-56',    class: '' },
+  { path: '/activity',         title: 'Activity',        icon:'nc-tile-56',    class: '' },
+
+];
 
 @Component({
     moduleId: module.id,

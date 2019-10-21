@@ -11,14 +11,14 @@
       </div>
     </div>
 
-    <a class="navbar-brand" href="#">Prospect</a>
+    <a [routerLink]="['/dashboard']" class="navbar-brand" href="#">Prospect</a>
 
     <li class="navbar-brand" ngbDropdown placement="bottom-left">
         <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
             <span class="nav-link-inner--text">Catalogue</span>
         </a>
         <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-left">
-          <a ngbDropdownItem href="javascript:void(0)">Software</a>
+          <a [routerLink]="['/software']" class="dropdown-item">Software</a>
         </div>
       </li>
     <button class="navbar-toggler" type="button" (click)="collapse()"
