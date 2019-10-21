@@ -1,8 +1,10 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -17,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 //I keep the new line
 @NgModule({
@@ -24,8 +27,12 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
+    FormsModule, ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
     BrowserModule, NgxPaginationModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -39,7 +46,8 @@ import { LoginComponent } from './login/login.component';
     FixedPluginModule
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 }
