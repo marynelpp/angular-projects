@@ -1,84 +1,83 @@
-
 <div style="background-color: #6c757d; width: 280px; "  class="sidebar-wrapper sidebar-transparent">
-  <div class="logo">
-    <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-
-      <i class="fa fa-filter" aria-hidden="true"></i>
-    </a>
-    <a href="" class="simple-text logo-normal">
-      Filter
-    </a>
-  </div>
-    <ul class="nav">
-      
-        <div class="container">
-           
-           
-            <h6 style="color: white;">Software</h6>  
-            <form>
-                <div class="input-group">
-                  <input type="text" value="" class="form-control" placeholder="Search...">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i style="color: black" class="nc-icon nc-zoom-split"></i>
+    <div class="logo">
+      <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+  
+        <i class="fa fa-filter" aria-hidden="true"></i>
+      </a>
+      <a href="" class="simple-text logo-normal">
+        Filter
+      </a>
+    </div>
+      <ul class="nav">
+        
+          <div class="container">
+             
+             
+              <h6 style="color: white;">Software</h6>  
+              <form>
+                  <div class="input-group">
+                    <input type="text" value="" class="form-control" placeholder="Search...">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <i style="color: black" class="nc-icon nc-zoom-split"></i>
+                      </div>
                     </div>
                   </div>
+                </form>
+                    <h6 style="color: white;">Country</h6>
+                    <div class="input-group-append justify-content-center">  
+                  <ngx-multiselect
+                    [(ngModel)]="selectedCountry"
+                    [options]="countries"
+                    ngDefaultControl>
+                  </ngx-multiselect>
                 </div>
+              <br>
+              <h6 style="color: white;">City</h6>
+                    <div class="d-flex justify-content-center my-2">  
+                  <ngx-multiselect
+                    [(ngModel)]="selectedCity"
+                    [options]="city"
+                    ngDefaultControl>
+                  </ngx-multiselect>
+                </div>
+              <br>
+              
+              <h6 style="color: white;">Years of experience</h6>
+              <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                <form class="range-field w-75">
+                <igx-slider [type]="sliderType.RANGE" [minValue]="0" [maxValue]="100" [(ngModel)]="exp"></igx-slider>
               </form>
-                  <h6 style="color: white;">Country</h6>
-                  <div class="input-group-append justify-content-center">  
-                <ngx-multiselect
-                  [(ngModel)]="selectedCountry"
-                  [options]="countries"
-                  ngDefaultControl>
-                </ngx-multiselect>
+              <span class="font-weight-bold indigo-text ml-2 mt-1">100</span>
               </div>
-            <br>
-            <h6 style="color: white;">City</h6>
-                  <div class="d-flex justify-content-center my-2">  
-                <ngx-multiselect
-                  [(ngModel)]="selectedCity"
-                  [options]="city"
-                  ngDefaultControl>
-                </ngx-multiselect>
-              </div>
-            <br>
-            
-            <h6 style="color: white;">Years of experience</h6>
-            <div class="d-flex justify-content-center my-4">
-              <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
-              <form class="range-field w-75">
-              <igx-slider [type]="sliderType.RANGE" [minValue]="0" [maxValue]="100" [(ngModel)]="exp"></igx-slider>
+              <h6 style="color: white;">Level of Experience</h6>
+              <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                <form class="range-field w-75">
+              <igx-slider [type]="sliderType.RANGE" [minValue]="0" [maxValue]="10" [(ngModel)]="age"></igx-slider>
+            </form>
+            <span class="font-weight-bold indigo-text ml-2 mt-1">10</span>
+            </div>
+              <h6 style="color: white;">Age</h6>
+              <div class="d-flex justify-content-center my-4">
+                <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
+                <form class="range-field w-75">
+              <igx-slider [type]="sliderType.RANGE" [minValue]="0" [maxValue]="100" [(ngModel)]="lexp"></igx-slider>
             </form>
             <span class="font-weight-bold indigo-text ml-2 mt-1">100</span>
             </div>
-            <h6 style="color: white;">Level of Experience</h6>
-            <div class="d-flex justify-content-center my-4">
-              <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
-              <form class="range-field w-75">
-            <igx-slider [type]="sliderType.RANGE" [minValue]="0" [maxValue]="10" [(ngModel)]="age"></igx-slider>
-          </form>
-          <span class="font-weight-bold indigo-text ml-2 mt-1">10</span>
-          </div>
-            <h6 style="color: white;">Age</h6>
-            <div class="d-flex justify-content-center my-4">
-              <span class="font-weight-bold purple-text mr-2 mt-1">0</span>
-              <form class="range-field w-75">
-            <igx-slider [type]="sliderType.RANGE" [minValue]="0" [maxValue]="100" [(ngModel)]="lexp"></igx-slider>
-          </form>
-          <span class="font-weight-bold indigo-text ml-2 mt-1">100</span>
-          </div>
-            <h6 style="color: white;">Salary range</h6>
-            <div class="d-flex justify-content-center my-4">
-                <span class="font-weight-bold purple-text mr-2 mt-1">$0</span>
-                <form class="range-field w-75">
-                  <igx-slider style="border: #0000ff;" [type]="sliderType.RANGE" [minValue]="0" [maxValue]="1000" [(ngModel)]="lexp"></igx-slider>
-          </form>
-          <span class="font-weight-bold indigo-text ml-2 mt-1">$10000</span>
-          </div>
-          </div>
-    </ul>
-
-   
-    
-</div>
+              <h6 style="color: white;">Salary range</h6>
+              <div class="d-flex justify-content-center my-4">
+                  <span class="font-weight-bold purple-text mr-2 mt-1">$0</span>
+                  <form class="range-field w-75">
+                    <igx-slider style="border: #0000ff;" [type]="sliderType.RANGE" [minValue]="0" [maxValue]="1000" [(ngModel)]="lexp"></igx-slider>
+            </form>
+            <span class="font-weight-bold indigo-text ml-2 mt-1">$10000</span>
+            </div>
+            </div>
+      </ul>
+  
+     
+      
+  </div>

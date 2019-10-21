@@ -1,4 +1,5 @@
 
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import noUiSlider from "nouislider";
 import { SliderType } from "igniteui-angular";

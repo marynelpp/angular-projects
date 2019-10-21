@@ -21,6 +21,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+
+
+
 //I keep the new line
 @NgModule({
   declarations: [
@@ -31,10 +34,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     FormsModule, ReactiveFormsModule,
-    BrowserAnimationsModule,
-  
+    BrowserAnimationsModule,  
     BrowserModule, NgxPaginationModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes, {
       useHash: true
