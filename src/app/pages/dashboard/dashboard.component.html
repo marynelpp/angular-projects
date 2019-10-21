@@ -2,10 +2,10 @@
   <div class="col-md-12">
     
       <div class="card-header">
-        <h4 class="card-title align-center">Leaflet</h4>
+        <h4 class="card-title align-center">Prospect</h4>
       </div>
     
-       <!-- <span  (click)="OpenTechnologyModal(template,'save')" class="btn btn-primary btn-xs">Add New Technology</span>-->
+       <span  (click)="OpenTechnologyModal(template,'save')" class="btn btn-primary btn-xs">Add New Prospect</span>
         <br /><br />
         <div class="table-responsive">
           <table id="mytable" class="table table-bordred table-striped">
@@ -36,30 +36,109 @@
    
       <div class="modal-header">
        
-        <!--<h4 class="modal-title" id="add-modal-label">{{titleModal}}</h4>-->
+        <h4 class="modal-title" id="add-modal-label">Prospect</h4>
       </div>
-      <div class="modal-body">
-       
+      <div class="modal-body">       
         <div class="form-group">
-          <label class="col-sm-2 control-label">Leaflet</label>
           <div class="col-sm-10">
-            <!--<input type="text" class="form-control"  [(ngModel)]="technology.techName"/>-->
+            <form>
+              <div class="form-group row">
+                  <label for="Name" class="col-4 col-form-label">Name*</label> 
+                  <div class="col-8">
+                    <input id="Name" name="Name" placeholder="Name" required="required" class="form-control here" type="text">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Surnames" class="col-4 col-form-label">Surnames*</label> 
+                    <div class="col-8">
+                      <input id="Surnames" name="Surnames" placeholder="Surnames" required="required" class="form-control here" type="text">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="username" class="col-4 col-form-label">Age/Phone*</label> 
+                    <form class="form-inline" role="form">
+                        <div class="form-group col-6">
+                            <input id="Age" name="Age" placeholder="Age" class="form-control here" required="required" type="text">
+                          </div>
+                      <div class="form-group col-6">
+                          <input id="Phone" name="Phone" placeholder="Phone" class="form-control here" required="required" type="text">
+                        </div>
+                      </form>
+                  </div>
+                <div class="form-group row">
+                  <label for="Specialty" class="col-4 col-form-label">Specialty*</label> 
+                  <div class="col-8">
+                    <input id="Specialty" name="Specialty" placeholder="Specialty" required="required" class="form-control here" type="text">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Title" class="col-4 col-form-label">Title</label> 
+                    <div class="col-8">
+                      <select id="Title" name="Title" class="custom-select">
+                        <option value="Developer">Developer</option>
+                        <option value="Implementer">Implementer</option>
+                        <option value="Contributor">Contributor</option>
+                        <option value="Others">Others</option>
+                      </select>
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                      <label for="Software" class="col-4 col-form-label">Software listing</label> 
+                      <div class="col-8">
+                        <input id="Software" name="Software" placeholder="Software" class="form-control here" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">Direction*</label> 
+                        <form class="form-inline" role="form">
+                            <div class="form-group col-6">
+                                <input id="Age" name="Age" placeholder="Country" class="form-control here" required="required" type="text">
+                              </div>
+                          <div class="form-group col-6">
+                              <input id="Phone" name="Phone" placeholder="City" class="form-control here" required="required" type="text">
+                            </div>
+                          </form>
+                      </div>
+                
+                <div class="form-group row">
+                  <label for="pass" class="col-4 col-form-label">Salary</label> 
+                  <div class="col-8">
+                    <input id="Salary" name="Salary" placeholder="Salary" class="form-control here" required="required" type="text">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Title" class="col-4 col-form-label">Source</label> 
+                    <div class="col-8">
+                      <select id="Title" name="Title" class="custom-select">
+                        <option value="Developer">LinkedIn</option>
+                        <option value="Implementer">Referred</option>
+                        <option value="Contributor">Twitter</option>
+                        <option value="Others">Others</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group row">
+                      <div class="offset-4 col-8">
+                        <button name="submit" type="submit" class="btn btn-primary text-center">Save</button>
+                      </div>
+                    </div> -->
+              </form>
           </div>
         </div>
         
       </div> 
-      <!--<div class="modal-footer">
+      <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
-        <div *ngIf="save"><button (click)="saveTechnology()" type="submit" class="btn btn-primary">Save</button></div>
-        <div *ngIf="edit"><button (click)="editTechnology()" type="submit" class="btn btn-primary">Edit</button></div>
-      </div>-->
+        <div ><button  type="submit" class="btn btn-primary">Save</button></div>
+
+      </div>
   
   </ng-template>
-  <ng-template #confirm>
-    <!--<div class="modal-body text-center">
+  <!--<ng-template #confirm>
+    <div class="modal-body text-center">
       <p>Do you want to Delete?</p>
       <button type="button" class="btn btn-default" (click)="deleteTechnology()" >Yes</button>
       <button type="button" class="btn btn-primary" (click)="onClose()" >No</button>
-    </div>-->
-  </ng-template>
+    </div>
+  </ng-template>-->
 </div>
