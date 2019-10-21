@@ -1,146 +1,56 @@
-<style>
-/* You can add global styles to this file, and also import other style files */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<body style="background-image: url(https://images.unsplash.com/photo-1487284122274-e864e9dec2bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80);  background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+min-height: 100vh;
+font-family: 'Roboto', sans-serif;">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-body {
-  background-image: url(https://images.unsplash.com/photo-1487284122274-e864e9dec2bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-}
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <br>
+        <img style="height: 95px;" src=".\assets\img\logo2.png">
+      <h3>Login</h3>
+    </div>
 
-.app-header {
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
-}
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
 
-.login-wrapper {
-  height: 100%;
-}
 
-.positronx {
-  text-decoration: none;
-  color: #ffffff;
-}
+      <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Forgot
+          password?</a></span>
 
-.box {
-  position: relative;
-  top: 60px;
-  opacity: 1;
-  float: left;
-  padding: 60px 50px 40px 50px;
-  width: 100%;
-  background: #fff;
-  border-radius: 10px;
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  z-index: 5;
-  max-width: 330px;
-}
+      <input type="submit" class="fadeIn fourth" value="Log In">
 
-.box.back {
-  transform: scale(.95);
-  -webkit-transform: scale(.95);
-  -ms-transform: scale(.95);
-  top: -20px;
-  opacity: .8;
-  z-index: -1;
-}
 
-.box:before {
-  content: "";
-  width: 100%;
-  height: 30px;
-  border-radius: 10px;
-  position: absolute;
-  top: -10px;
-  background: rgba(255, 255, 255, .6);
-  left: 0;
-  transform: scale(.95);
-  -webkit-transform: scale(.95);
-  -ms-transform: scale(.95);
-  z-index: -1;
-}
-
-.login-wrapper .example-form {
-  min-width: 100%;
-  max-width: 300px;
-  width: 100%;
-}
-
-.login-wrapper .example-full-width,
-.login-wrapper .btn-block {
-  width: 100%;
-}
-
-.login-wrapper mat-card-header {
-  text-align: center;
-  width: 100%;
-  display: block;
-  font-weight: 700;
-}
-
-.login-wrapper mat-card-header mat-card-title {
-  font-size: 30px;
-  margin: 0;
-}
-
-.login-wrapper .mat-card {
-  padding: 40px 70px 50px;
-}
-
-.login-wrapper .mat-stroked-button {
-  border: 1px solid currentColor;
-  line-height: 54px;
-  background: #FFF7FA;
-}
-
-.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
-  padding: 0.8375em 0;
-}
-
-</style>
-<body class="body">
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="box" style="text-align: center;">
-      <mat-card-header >
-        <mat-card-title>Log in</mat-card-title>
-        <div style="background-position: center;" >
-        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" 
-        style=" width:150px;
-        height:150px;
-        border-radius:120px;
-        border-color: blue;">
-      </div>
-      </mat-card-header>
-      <form class="example-form">
-    
-        <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password"type="password">
-          </mat-form-field>
-        </mat-card-content>
-        
-        <button mat-stroked-button color="primary" class="btn-block">Log in</button>
-      </form>
-    </mat-card>
-  
+      <div class="modal-body">
+        <div class="box">
+             <div class="content">
+                <div class="social">
+                    <a class="underlineHover">Go to the Site</a>
+                    <br>
+                    <a id="google_login" class="circle google" href="https://accounts.google.com/ServiceLogin/signinchooser?hl=es-419&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fsearch%3Fclient%3Dfirefox-b-d%26q%3Dgmail&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+                      <i class="fa fa-google-plus fa-fw"></i>
+                  </a><a class="circle github" href="https://github.com/login">
+                        <i class="fa fa-github fa-fw"></i>
+                    </a>
+                  <a id="facebook_login" class="circle facebook" href="https://es-la.facebook.com/">
+                      <i class="fa fa-facebook fa-fw"></i>
+                  </a>
+                  <br>
+                  <a class="underlineHover" href="#register">Create Account</a>
+                </div>
+             </div>
+        </div>
+    </div>
+    </form>
   </div>
+</div>
 </body>

@@ -1,36 +1,53 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>Register</mat-card-title>
-      </mat-card-header>
-  
-      <form class="example-form">
-  
-        <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <mat-label>Choose a role...</mat-label>
-            <mat-select [(value)]="selected">
-              <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-  
-        </mat-card-content>
-  
-        <button mat-stroked-button color="accent" class="btn-block">Register</button>
-  
-      </form>
-    </mat-card>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<body style="background-image: url(https://images.unsplash.com/photo-1487284122274-e864e9dec2bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80);  background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+min-height: 100vh;
+font-family: 'Roboto', sans-serif;">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <br>
+        <img style="height: 95px;" src=".\assets\img\logo2.png">
+      <h3>Register</h3>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Repeat password">
+      <input type="submit" class="fadeIn fourth" value="Create Account">
+
+
+      <div class="modal-body">
+        <div class="box">
+             <div class="content">
+                <div class="social">
+                    <a class="underlineHover">Go to the Site</a>
+                    <br>
+                    <a id="google_login" class="circle google" href="https://accounts.google.com/ServiceLogin/signinchooser?hl=es-419&passive=true&continue=https%3A%2F%2Fwww.google.com%2Fsearch%3Fclient%3Dfirefox-b-d%26q%3Dgmail&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+                      <i class="fa fa-google-plus fa-fw"></i>
+                  </a><a class="circle github" href="https://github.com/login">
+                        <i class="fa fa-github fa-fw"></i>
+                    </a>
+                  <a id="facebook_login" class="circle facebook" href="https://es-la.facebook.com/">
+                      <i class="fa fa-facebook fa-fw"></i>
+                  </a>
+                  <br>
+                  <a class="underlineHover" href="#">Log In</a>
+                </div>
+             </div>
+        </div>
+    </div>
+    </form>
+
   </div>
+</div>
+</body>
