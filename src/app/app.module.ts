@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMaterialModule } from './angular-material/angular-material.module';
+
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -32,7 +32,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
+  
     BrowserModule, NgxPaginationModule,
     BrowserAnimationsModule,
     HttpClientModule,

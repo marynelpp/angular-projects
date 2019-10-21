@@ -83,10 +83,17 @@
                     </div>
                   </div> 
                   <div class="form-group row">
-                      <label for="Software" class="col-4 col-form-label">Software listing</label> 
-                      <div class="col-8">
-                        <input id="Software" name="Software" placeholder="Software" class="form-control here" type="text">
-                      </div>
+
+                      <label for="Title" class="col-4 col-form-label">Software</label> 
+                      <div class="d-flex justify-content-center my-2">  
+                    <ngx-multiselect
+                      [(ngModel)]="selectedSoftware"
+                      [options]="software"
+                      ngDefaultControl>
+                    </ngx-multiselect>
+                  </div>
+                <br>
+                    
                     </div>
                     <div class="form-group row">
                         <label for="username" class="col-4 col-form-label">Direction*</label> 
