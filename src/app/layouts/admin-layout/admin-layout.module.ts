@@ -16,12 +16,8 @@ import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
-import {HardwareComponent} from '../../pages/hardware/hardware.component';
 import {SoftwareComponent} from '../../pages/software/software.component';
 import {AssignmentComponent} from '../../pages/assignment/assignment.component';
-import {LevelComponent} from '../../pages/level/level.component';
-import {ActivityComponent} from '../../pages/activity/activity.component';
-import {TechnologyComponent} from '../../pages/technology/technology.component'
 import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
 @NgModule({
@@ -44,12 +40,8 @@ import { NgxMultiselectModule } from '@ngx-lib/multiselect';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    HardwareComponent,
     SoftwareComponent,
     AssignmentComponent,
-    LevelComponent,
-    TechnologyComponent,
-    ActivityComponent
    
   ],
   
