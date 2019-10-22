@@ -2,25 +2,18 @@
 <div class="container" >
     <div class="row">
       <div class="col-md-3 ">
-        <div>
+        <div class="text-center">
           <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" 
           style=" width:250px;
           height:250px;
           border-radius:120px;
           border-color: blue;">
-          <h3 class="text-center" style="color: blue;">Username</h3>
-          <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h4 class="text-center" style="color: blue;">Username</h4>
+         <p class="text-center">Specialty</p>
+         <button name="submit" type="submit" class="btn btn-primary btn-xs">Setting</button>
+         <button type="button" class="btn btn-default" onclick="location.href='#/dashboard'">Back</button>
         </div>
-        <div class="form-group row">
-            <div class="offset-4 col-8">
-              <button name="submit" type="submit" class="btn btn-primary">Setting</button>
-            </div>
-          </div>
-
       </div>
-      
-  
       <div class="col-md-9" style="filter: drop-shadow(5px 5px 10px #444);">
           <div class="card">
               <div class="card-body">
@@ -79,14 +72,20 @@
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="username" class="col-4 col-form-label">Direction*</label> 
+                                        <label for="direction" class="col-4 col-form-label">Direction*</label> 
                                         <form class="form-inline" role="form">
                                             <div class="form-group col-6">
-                                                <input id="Age" name="Age" placeholder="Country" class="form-control here" required="required" type="text">
+                                                <select id="country" name="country" class="custom-select">
+                                                  <option value="">Mexico</option>
+                                                  <option value="">Venezuela</option>
+                                                </select>
                                               </div>
                                           <div class="form-group col-6">
-                                              <input id="Phone" name="Phone" placeholder="City" class="form-control here" required="required" type="text">
-                                            </div>
+                                            <select id="city" name="city" class="custom-select">
+                                              <option value="">Texas</option>
+                                              <option value="">Barquisimeto</option>
+                                            </select>                                     
+                                           </div>
                                           </form>
                                       </div>
                                 
