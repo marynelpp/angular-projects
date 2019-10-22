@@ -17,8 +17,8 @@
               </thead>
               <tbody>
                 <tr *ngFor="let item of softwareList;let i = index">
-                  <td>{{item.id}}</td>
-                  <td>{{item.softwareName}}</td>
+                  <td>{{item.software_id}}</td>
+                  <td>{{item.software_name}}</td>
                   
                   <td><span class="btn btn-primary btn-xs" (click)="OpenSoftwareModal(template,'edit',i)">
                       <span class="nc-icon nc-ruler-pencil"></span></span></td>

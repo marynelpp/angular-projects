@@ -26,7 +26,7 @@ export class GlobalService {
     tipo: String;
 
     constructor(public http: HttpClient, private toastr: ToastrService) {
-        this.apiBaseUrl = 'https://localhost:44393/api/'; //endpoint local
+        this.apiBaseUrl = 'https://localhost:44374/api'; //endpoint local
        
     }
 

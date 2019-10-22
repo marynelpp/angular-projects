@@ -33,8 +33,8 @@ export class DashboardComponent implements OnInit{
   selectedsoftware;
 
     ngOnInit(){
+      this.getprospects();
       this.chartColor = "#FFFFFF";
-      this.getUser();
 
       this.software = [
         { id: 1, name: "Postman"},
@@ -60,19 +60,10 @@ export class DashboardComponent implements OnInit{
       this.bsModalRef = this.bsModalService.show(template);
       
     }
-    getUser() {
-      this.remoteService.getModel("/v2/agents").then(
-        result => {
-          console.log(result);
-          this.UserList = result;
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    }
+  
 
     getprospects() {
+      console.log("algo");
       this.globalService.getModel("/prospect").then(
           result => {
             console.log(result);
@@ -107,9 +98,17 @@ export class DashboardComponent implements OnInit{
     console.log(this.prospect)
     
     let postprospect = {
-      'prospect_id': this.prospect.id,
-      'prospect_name': this.prospect.prospectName,
-      
+      'prospect_id': this.prospect.prospect_id,
+      'prospect_name': this.prospect.prospect_name,
+      'prospect_birthday': this.prospect.prospect_birthday,
+      'city_id': this.prospect.city_id,
+      'prospect_address': this.prospect.prospect_address,
+      'prospect_cv': this.prospect.prospect_address,
+      'prospect_photo': this.prospect.prospect_photo,
+      'prospect_link': this.prospect.prospect_link,
+      'prospect_salary': this.prospect.prospect_salary,
+      'title_id': this.prospect.title_id,
+     
     };
 
     this.globalService.updateModel(this.prospect.id,postprospect, "/prospect").then(
@@ -131,7 +130,16 @@ export class DashboardComponent implements OnInit{
     console.log(this.prospect)
     
     let postprospect = {
-      'prospectName': this.prospect.prospectName,
+      'prospect_id': this.prospect.prospect_id,
+      'prospect_name': this.prospect.prospect_name,
+      'prospect_birthday': this.prospect.prospect_birthday,
+      'city_id': this.prospect.city_id,
+      'prospect_address': this.prospect.prospect_address,
+      'prospect_cv': this.prospect.prospect_address,
+      'prospect_photo': this.prospect.prospect_photo,
+      'prospect_link': this.prospect.prospect_link,
+      'prospect_salary': this.prospect.prospect_salary,
+      'title_id': this.prospect.title_id,
       
      
     };

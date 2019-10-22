@@ -17,11 +17,11 @@
               <th>Detalles</th>
             </thead>
             <tbody>
-              <tr >
-                <td>Pedro</td>
-                <td>Perez</td>
-                <td>0424-555555</td>
-                <td>$700</td>
+              <tr *ngFor="let item of prospectList;let i = index">
+                <td>{{item.prospect_name}}</td>
+                <td>{{item.prospect_lastname}}</td>
+                <td>{{item.prospect_phonenumber}}</td>
+                <td>{{item.prospect_salary}}</td>
                
                 
                 <td><span class="btn btn-primary btn-xs" [routerLink]="['/user']">
