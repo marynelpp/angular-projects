@@ -35,38 +35,27 @@ export class SidebarComponent implements OnInit {
     public exp: Exp = new Exp(200, 800);
     public lexp: Lexp = new Lexp(200, 800);
     public age: Age = new Age(200, 800);
-    countries;
-    selectedCountry;
-    city;
-    selectedCity;
+    software;
+    selectedSoftware;
+
 
     
   
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
 
-        this.countries = [
-            { id: 1, name: "Mexico"},
-            { id: 2, name: "USA" },
-            { id: 3, name: "China" },
-            { id: 4, name: "Japan" }
+        this.software = [
+            { id: 1, name: ".Net"},
+            { id: 2, name: "Postman" },
+       
         ];
         
-        this.selectedCountry = [{
+        this.selectedSoftware = [{
             id: 1,
-            name: "Mexico"
+            name: ".Net"
         }];
 
-        this.city = [
-            { id: 1, name: "Siquisique"},
-            { id: 2, name: "Barquisimeto" },
-            { id: 3, name: "Acarigua" },
-        ];
-        
-        this.selectedCity = [{
-            id: 2,
-            name: "Barquisimeto"
-        }];
+      
 
         
     }
