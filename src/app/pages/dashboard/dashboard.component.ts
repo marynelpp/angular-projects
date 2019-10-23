@@ -64,7 +64,8 @@ export class DashboardComponent implements OnInit{
 
     getprospects() {
       console.log("algo");
-      this.globalService.getModel("/prospect").then(
+      this.globalService.getModel("/5db068572f00004ae4c13be5").then(
+        
           result => {
             console.log(result);
             this.prospectList = result;
@@ -75,6 +76,8 @@ export class DashboardComponent implements OnInit{
           }
         );
   }
+
+  
   
   
 
