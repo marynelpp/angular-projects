@@ -5,7 +5,7 @@
         <h4 class="card-title align-center">Prospect</h4>
       </div>
     
-       <span  (click)="OpenTechnologyModal(template,'save')" class="btn btn-primary btn-xs">Add New Prospect</span>
+       <span  (click)="OpensoftwareModal(template,'save')" class="btn btn-primary btn-xs">Add New Prospect</span>
         <br /><br />
         <div class="table-responsive">
           <table id="mytable" class="table table-bordred table-striped">
@@ -46,85 +46,69 @@
               <div class="form-group row">
                   <label for="Name" class="col-4 col-form-label">Name*</label> 
                   <div class="col-8">
-                    <input id="Name" name="Name" placeholder="Name" required="required" class="form-control here" type="text">
+                    <input id="Name" name="Name" placeholder="Name" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_name" >
                   </div>
                 </div>
                 <div class="form-group row">
                     <label for="Surnames" class="col-4 col-form-label">Surnames*</label> 
                     <div class="col-8">
-                      <input id="Surnames" name="Surnames" placeholder="Surnames" required="required" class="form-control here" type="text">
+                      <input id="Surnames" name="Surnames" placeholder="Surnames" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_lastname">
                     </div>
                   </div>
                 <div class="form-group row">
                     <label for="username" class="col-4 col-form-label">Age/Phone*</label> 
                     <form class="form-inline" role="form">
                         <div class="form-group col-6">
-                            <input id="Age" name="Age" placeholder="Age" class="form-control here" required="required" type="text">
+                            <input id="Age" name="Age" placeholder="Age" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_birthday">
                           </div>
                       <div class="form-group col-6">
-                          <input id="Phone" name="Phone" placeholder="Phone" class="form-control here" required="required" type="text">
+                          <input id="Phone" name="Phone" placeholder="Phone" class="form-control here" required="required" type="text"  [(ngModel)]="prospect.prospect_phonenumber">
                         </div>
                       </form>
                   </div>
-                <div class="form-group row">
-                  <label for="Specialty" class="col-4 col-form-label">Specialty*</label> 
-                  <div class="col-8">
-                    <input id="Specialty" name="Specialty" placeholder="Specialty" required="required" class="form-control here" type="text">
+                  <div class="form-group">
+                    <label class="col-sm-7 control-label" >Select Titles </label>
+                  <ngx-multiselect
+                    [(ngModel)]="titles"
+                    [options]="title"
+                    ngDefaultControl>
+                  </ngx-multiselect>
                   </div>
-                </div>
-
-                  <div class="form-group row">
-                      <label for="Title" class="col-4 col-form-label">Title</label> 
-                      <div class="col-8">
-                        <select id="Title" name="Title" class="custom-select">
-                          <option value="Developer">Developer</option>
-                          <option value="Implementer">Implementer</option>
-                          <option value="Contributor">Contributor</option>
-                          <option value="Others">Others</option>
-                        </select>
-                      </div>
-                    </div> 
-
                   
-
-
-                  <div class="form-group row">
+                  <div class="form-group">
                       <label for="Title" class="col-4 col-form-label">Software</label> 
-                      <div class="d-flex justify-content-center my-2">  
                     <ngx-multiselect
-                      [(ngModel)]="selectedSoftware"
+                      [(ngModel)]="softwares"
                       [options]="software"
                       ngDefaultControl>
                     </ngx-multiselect>
                   </div>
                 <br>
-                    
-                    </div>
+                      
                     <div class="form-group row">
-                        <label for="username" class="col-4 col-form-label">Direction*</label> 
-                        <div class="form-group row">
-                          
-                            <div class="col-8">
-                              <select id="Title" name="Title" class="custom-select">
-                                <option value="Developer">Mexico</option>
+                      <label for="direction" class="col-4 col-form-label">Direction*</label> 
+                      <form class="form-inline" role="form">
+                          <div class="form-group col-6">
+                            <select class="form-control"   [(ngModel)]="prospect.country_id" (ngModelChange)="showCountry()">
+                              <option *ngFor="let item of countryList; let i = index" [ngValue]="countryList[i].country_id">
+                                 {{countryList[i].country_name}}
+                               </option>
                               </select>
-                            </div>
-                          </div> 
-    
-                          <div class="form-group row">
-                             
-                              <div class="col-8">
-                                <select id="Title" name="Title" class="custom-select">
-                                  <option value="Developer">Acarigua</option>
-                                </select>
-                              </div>
-                            </div> 
-                      </div>
+                        </div>
+                        <div class="form-group col-6">
+                          <select class="form-control"   [(ngModel)]="prospect.city_id" (ngModelChange)="showCity()">
+                            <option *ngFor="let item of cityList; let i = index" [ngValue]="cityList[i].city_id">
+                               {{cityList[i].city_name}}
+                             </option>
+                            </select>                                    
+                         </div>
+                        </form>
+                    </div>
                 
                 <div class="form-group row">
                   <label for="pass" class="col-4 col-form-label">Salary</label> 
                   <div class="col-8">
-                    <input id="Salary" name="Salary" placeholder="Salary" class="form-control here" required="required" type="text">
+                    <input id="Salary" name="Salary" placeholder="Salary" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_salary">
                   </div>
                 </div>
                 <div class="form-group row">

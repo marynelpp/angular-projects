@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NgxMultiselectModule } from '@ngx-lib/multiselect';
 
 
 
@@ -33,7 +34,7 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent,
   ],
   imports: [
-    FormsModule, ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule,NgxMultiselectModule,
     BrowserAnimationsModule,  
     BrowserModule, NgxPaginationModule,
     HttpClientModule,

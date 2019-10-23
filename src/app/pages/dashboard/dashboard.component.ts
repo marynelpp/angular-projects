@@ -21,19 +21,34 @@ export class DashboardComponent implements OnInit{
   public labels:any;
   request: any;
   prospectList: any;
+  country:any;
+  countryList :any;
+  city:any;
+  cityList:any;
+  titleList: any;
+  title: any;
+  titles: any;
   bsModalRef: BsModalRef;
-  software: any;
+
   titleModal: string="";
   save: boolean=false;
   edit: boolean=false;
+  
+  software: any;
+  softwares: any;
+  softwareList: any;
 
-  UserList: any;
+  UserList :any;
 
   prospect;
   selectedsoftware;
 
     ngOnInit(){
+      this.getsoftware();
       this.getprospects();
+      this.gettitle();
+      this.getcountry();
+      this.getcity(); 
       this.chartColor = "#FFFFFF";
 
       this.software = [
@@ -51,20 +66,69 @@ export class DashboardComponent implements OnInit{
    
 
     constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
-  
+      this.titleList = [];
+      this.title= [];
+      this.titles= [];
       this.UserList = [];
+
+      this.softwareList = [];
+      this.software = [];
+      this.softwares= [];
     }
 
-    OpenTechnologyModal(template: TemplateRef<any>, option, index:number) {
-      
+    OpensoftwareModal(template: TemplateRef<any>, option, index:number) {
+      this.prospect=[]
+      this.software = [];
+      this.title= [];
+      if(option==="save"){
+        this.titleModal='Create prospect';
+        this.save=true;
+      }else
+      if(option==="edit"){
+        this.titleModal='Edit prospect';
+        this.edit=true;
+        console.log(this.prospectList[index])
+        this.prospect=this.prospectList[index];
+        console.log(this.prospect);
+      }else
+      if(option==='delete'){
+        this.prospect=this.prospectList[index];
+
+      }
       this.bsModalRef = this.bsModalService.show(template);
       
+      
     }
-    
-  
+    showCountry() {
+      console.log(this.country);
+      this.globalService.getModel("/country/" + this.country.country_id).then(
+        result => {
+          console.log(result);
+          this.countryList = result;
+        },
+        err => {
+          console.log(err);
+          //this.loader.dismiss();
+        }
+      );
+  }
+
+  showCity() {
+    console.log(this.country);
+    this.globalService.getModel("/city/" + this.country.city_id).then(
+      result => {
+        console.log(result);
+        this.cityList = result;
+      },
+      err => {
+        console.log(err);
+        //this.loader.dismiss();
+      }
+    );
+}
 
     getprospects() {
-      console.log("algo");
+    
       this.globalService.getModel("/Prospect").then(
         
           result => {
@@ -78,7 +142,71 @@ export class DashboardComponent implements OnInit{
         );
   }
 
-  
+  getcity() {
+    
+    this.globalService.getModel("/city").then(
+      
+        result => {
+          console.log(result);
+          this.cityList = result;
+        },
+        err => {
+          console.log(err);
+          //this.loader.dismiss();
+        }
+      );
+}
+
+
+
+  getcountry() {
+    
+    this.globalService.getModel("/country").then(
+      
+        result => {
+          console.log(result);
+          this.countryList = result;
+        },
+        err => {
+          console.log(err);
+          //this.loader.dismiss();
+        }
+      );
+}
+
+  gettitle() {
+    console.log("title prueba");
+    this.globalService.getModel("/title").then(
+        result => {
+          console.log(result);
+          this.titleList = result;
+          this.titleList.map(item=>{
+            this.title.push({ title_id: item.title_id, title_name: item.title_name})
+          })
+        },
+        err => {
+          console.log(err);
+        }
+      );
+}
+
+getsoftware() {
+  this.globalService.getModel("/software").then(
+      result => {
+        console.log(result);
+        this.softwareList = result;
+        this.softwareList.map(item=>{
+          this.software.push({ id: item.software_id, name: item.software_name})
+        })
+      },
+      err => {
+        console.log(err);
+      }
+    );
+}
+
+
+
   
   
 
@@ -104,7 +232,9 @@ export class DashboardComponent implements OnInit{
     let postprospect = {
       'prospect_id': this.prospect.prospect_id,
       'prospect_name': this.prospect.prospect_name,
+      'prospect_lastname': this.prospect.prospect_lastname,
       'prospect_birthday': this.prospect.prospect_birthday,
+      'prospect_phonenumber': this.prospect.prospect_phonenumber,
       'city_id': this.prospect.city_id,
       'prospect_address': this.prospect.prospect_address,
       'prospect_cv': this.prospect.prospect_address,
