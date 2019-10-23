@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GlobalService } from "../providers/global.service";
-import { RemoteService } from "../providers/remote.service";
+
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit{
 
    
 
-    constructor(private globalService: GlobalService, private remoteService: RemoteService, private bsModalService: BsModalService) {
+    constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
   
       this.UserList = [];
     }
