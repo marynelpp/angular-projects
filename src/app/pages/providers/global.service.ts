@@ -26,7 +26,7 @@ export class GlobalService {
     tipo: String;
 
     constructor(public http: HttpClient, private toastr: ToastrService) {
-        this.apiBaseUrl = 'http://www.mocky.io/v2'; //endpoint local
+        this.apiBaseUrl = 'https://localhost:44393/api'; //endpoint local
        
     }
 

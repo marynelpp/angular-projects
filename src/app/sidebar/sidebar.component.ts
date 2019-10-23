@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
     }
 
     getSotware() {
-      this.globalService.getModel("/5db06ec12f00009600c13c1f").then(
+      this.globalService.getModel("/Software").then(
           result => {
             console.log(result);
             this.softwareList = result;

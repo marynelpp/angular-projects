@@ -51,7 +51,7 @@ export class SoftwareComponent implements OnInit{
     }
 
     getSoftwares() {
-        this.globalService.getModel("/5db06cf02f00002901c13c0e").then(
+        this.globalService.getModel("/Software").then(
             result => {
               console.log(result);
               this.softwareList = result;
