@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit{
 
     getprospects() {
       console.log("algo");
-      this.globalService.getModel("/5db068572f00004ae4c13be5").then(
+      this.globalService.getModel("/Prospect").then(
         
           result => {
             console.log(result);
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit{
   
 
   deleteprospect() {
-    this.globalService.removeModel(this.prospect.id,"/prospect").then(
+    this.globalService.removeModel(this.prospect.id,"/Prospect").then(
       result => {
         console.log(result);
         this.getprospects();
@@ -114,7 +114,7 @@ export class DashboardComponent implements OnInit{
      
     };
 
-    this.globalService.updateModel(this.prospect.id,postprospect, "/prospect").then(
+    this.globalService.updateModel(this.prospect.id,postprospect, "/Prospect").then(
       result => {
         console.log(result);
         this.getprospects();
@@ -147,7 +147,7 @@ export class DashboardComponent implements OnInit{
      
     };
 
-    this.globalService.addModel(postprospect, "/prospect").then(
+    this.globalService.addModel(postprospect, "/Prospect").then(
       result => {
         console.log(result);
         this.getprospects();
