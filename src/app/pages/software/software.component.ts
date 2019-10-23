@@ -66,7 +66,7 @@ export class SoftwareComponent implements OnInit{
     
   
     deleteSoftware() {
-      this.globalService.removeModel(this.software.id,"/software").then(
+      this.globalService.removeModel(this.software.software_id,"/Software").then(
         result => {
           console.log(result);
           this.getSoftwares();
@@ -85,12 +85,12 @@ export class SoftwareComponent implements OnInit{
       console.log(this.software)
       
       let postSoftware = {
-        'id': this.software.id,
-        'softwareName': this.software.softwareName,
+        'software_id': this.software.software_id,
+        'software_name': this.software.software_name,
         
       };
   
-      this.globalService.updateModel(this.software.id,postSoftware, "/software").then(
+      this.globalService.updateModel(this.software.id,postSoftware, "/Software").then(
         result => {
           console.log(result);
           this.getSoftwares();
@@ -109,12 +109,12 @@ export class SoftwareComponent implements OnInit{
       console.log(this.software)
       
       let postSoftware = {
-        'softwareName': this.software.softwareName,
+        'software_name': this.software.software_name,
         
        
       };
   
-      this.globalService.addModel(postSoftware, "/software").then(
+      this.globalService.addModel(postSoftware, "/Software").then(
         result => {
           console.log(result);
           this.getSoftwares();

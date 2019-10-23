@@ -60,6 +60,7 @@ export class DashboardComponent implements OnInit{
       this.bsModalRef = this.bsModalService.show(template);
       
     }
+    
   
 
     getprospects() {
