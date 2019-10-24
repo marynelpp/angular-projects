@@ -75,6 +75,11 @@ export class DashboardComponent implements OnInit{
       this.software = [];
       this.softwares= [];
     }
+    loadPage(item){
+      // console.log(item);
+      //localStorage.setItem("prospect", item);
+      
+    }
 
     OpensoftwareModal(template: TemplateRef<any>, option, index:number) {
       this.prospect=[]

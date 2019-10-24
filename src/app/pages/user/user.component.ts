@@ -1,7 +1,7 @@
 import { Component, OnInit,TemplateRef } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
-
+import {Routes,ActivatedRoute} from '@angular/router';
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { GlobalService } from "../providers/global.service";
 
@@ -14,7 +14,14 @@ import { GlobalService } from "../providers/global.service";
 
 export class UserComponent implements OnInit{
     ngOnInit(){
-        this.getUsers();
+        //this.getUsers();
+        this.route
+        .queryParams
+        .subscribe(params => {
+          console.log(params);
+            // Defaults to 0 if no query param provided.
+            this.prospect=params;
+          });
     }
 
 
@@ -25,7 +32,8 @@ export class UserComponent implements OnInit{
     titleModal: string="";
     save: boolean=false;
     edit: boolean=false;
-    constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
+    prospect: any;
+    constructor(private globalService: GlobalService, private bsModalService: BsModalService,public  route: ActivatedRoute) {
        this.user=[];
        
     }

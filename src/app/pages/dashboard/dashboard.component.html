@@ -25,7 +25,7 @@
                 
                
                 
-                <td><span class="btn btn-primary btn-xs" [routerLink]="['/user']">
+                <td><span (click)="loadPage(item)" class="btn btn-primary btn-xs" [routerLink]="['/user']" [queryParams]="item">
                     <span class="nc-icon nc-tap-01"></span></span></td>
               </tr>
             </tbody>
