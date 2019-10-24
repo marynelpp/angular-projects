@@ -66,9 +66,6 @@ export class DashboardComponent implements OnInit{
    
 
     constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
-      this.titleList = [];
-      this.title= [];
-      this.titles= [];
       this.UserList = [];
 
       this.softwareList = [];
@@ -81,7 +78,7 @@ export class DashboardComponent implements OnInit{
       
     }
 
-    OpensoftwareModal(template: TemplateRef<any>, option, index:number) {
+    OpenProspectModal(template: TemplateRef<any>, option, index:number) {
       this.prospect=[]
       this.software = [];
       this.title= [];
@@ -132,6 +129,20 @@ export class DashboardComponent implements OnInit{
     );
 }
 
+    showTitle() {
+      console.log(this.title);
+      this.globalService.getModel("/title/" + this.country.title_id).then(
+        result => {
+          console.log(result);
+          this.titleList = result;
+        },
+        err => {
+          console.log(err);
+          //this.loader.dismiss();
+        }
+      );
+    }
+
     getprospects() {
     
       this.globalService.getModel("/Prospect").then(
@@ -180,19 +191,17 @@ export class DashboardComponent implements OnInit{
 }
 
   gettitle() {
-    console.log("title prueba");
     this.globalService.getModel("/title").then(
-        result => {
-          console.log(result);
-          this.titleList = result;
-          this.titleList.map(item=>{
-            this.title.push({ title_id: item.title_id, title_name: item.title_name})
-          })
-        },
-        err => {
-          console.log(err);
-        }
-      );
+      
+      result => {
+        console.log(result);
+        this.titleList = result;
+      },
+      err => {
+        console.log(err);
+        //this.loader.dismiss();
+      }
+    );
 }
 
 getsoftware() {
@@ -216,7 +225,7 @@ getsoftware() {
   
 
   deleteprospect() {
-    this.globalService.removeModel(this.prospect.id,"/Prospect").then(
+    this.globalService.removeModel(this.prospect.prospect_id,"/Prospect").then(
       result => {
         console.log(result);
         this.getprospects();

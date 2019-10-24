@@ -2,19 +2,20 @@
   <div class="col-md-12">
     
       <div class="card-header">
-        <h4 class="card-title align-center">Prospect</h4>
+        <h4 class="card-title align-center">Prospecto</h4>
       </div>
     
-       <span  (click)="OpensoftwareModal(template,'save')" class="btn btn-primary btn-xs">Add New Prospect</span>
+       <span  (click)="OpenProspectModal(template,'save')" class="btn btn-primary btn-xs">Agregar nuevo Prospecto</span>
         <br /><br />
         <div class="table-responsive">
           <table id="mytable" class="table table-bordred table-striped">
             <thead>
-              <th>Name</th>
-              <th>Last Name</th>
-              <th>Title</th>
-              <th>Salary</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Titulo</th>
+              <th>Salario</th>
               <th>Detalles</th>
+              <th>Delete</th>
             </thead>
             <tbody>
               <tr *ngFor="let item of prospectList;let i = index">
@@ -27,6 +28,8 @@
                 
                 <td><span (click)="loadPage(item)" class="btn btn-primary btn-xs" [routerLink]="['/user']" [queryParams]="item">
                     <span class="nc-icon nc-tap-01"></span></span></td>
+                <td><span class="btn btn-danger btn-xs" (click)="OpenProspectModal(confirm,'delete', i)">
+                    <span class="nc-icon nc-simple-remove"></span></span></td>
               </tr>
             </tbody>
           </table>
@@ -37,43 +40,36 @@
    
       <div class="modal-header">
        
-        <h4 class="modal-title" id="add-modal-label">Prospect</h4>
+        <h4 class="modal-title" id="add-modal-label">Prospecto</h4>
       </div>
       <div class="modal-body">       
         <div class="form-group">
           <div class="col-sm-10">
             <form>
               <div class="form-group row">
-                  <label for="Name" class="col-4 col-form-label">Name*</label> 
+                  <label for="Name" class="col-4 col-form-label">Nombre*</label> 
                   <div class="col-8">
-                    <input id="Name" name="Name" placeholder="Name" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_name" >
+                    <input id="Name" name="Name" placeholder="Nombre" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_name" >
                   </div>
                 </div>
                 <div class="form-group row">
-                    <label for="Surnames" class="col-4 col-form-label">Surnames*</label> 
+                    <label for="Surnames" class="col-4 col-form-label">Apellido*</label> 
                     <div class="col-8">
-                      <input id="Surnames" name="Surnames" placeholder="Surnames" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_lastname">
+                      <input id="Surnames" name="Surnames" placeholder="Apellido" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_lastname">
                     </div>
                   </div>
                 <div class="form-group row">
-                    <label for="username" class="col-4 col-form-label">Age/Phone*</label> 
+                    <label for="username" class="col-4 col-form-label">Edad/Telefono*</label> 
                     <form class="form-inline" role="form">
                         <div class="form-group col-6">
-                            <input id="Age" name="Age" placeholder="Age" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_birthday">
+                            <input id="Age" name="Age" placeholder="Edad" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_birthday">
                           </div>
                       <div class="form-group col-6">
-                          <input id="Phone" name="Phone" placeholder="Phone" class="form-control here" required="required" type="text"  [(ngModel)]="prospect.prospect_phonenumber">
+                          <input id="Phone" name="Phone" placeholder="Telefono" class="form-control here" required="required" type="text"  [(ngModel)]="prospect.prospect_phonenumber">
                         </div>
                       </form>
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-7 control-label" >Select Titles </label>
-                  <ngx-multiselect
-                    [(ngModel)]="titles"
-                    [options]="title"
-                    ngDefaultControl>
-                  </ngx-multiselect>
-                  </div>
+                 
                   
                   <div class="form-group">
                       <label for="Title" class="col-4 col-form-label">Software</label> 
@@ -84,35 +80,62 @@
                     </ngx-multiselect>
                   </div>
                 <br>
-                      
-                    <div class="form-group row">
-                      <label for="direction" class="col-4 col-form-label">Direction*</label> 
-                      <form class="form-inline" role="form">
-                          <div class="form-group col-6">
-                            <select class="form-control"   [(ngModel)]="prospect.country_id" (ngModelChange)="showCountry()">
-                              <option *ngFor="let item of countryList; let i = index" [ngValue]="countryList[i].country_id">
-                                 {{countryList[i].country_name}}
-                               </option>
-                              </select>
-                        </div>
-                        <div class="form-group col-6">
-                          <select class="form-control"   [(ngModel)]="prospect.city_id" (ngModelChange)="showCity()">
-                            <option *ngFor="let item of cityList; let i = index" [ngValue]="cityList[i].city_id">
-                               {{cityList[i].city_name}}
-                             </option>
-                            </select>                                    
-                         </div>
-                        </form>
+
+                <div class="form-group row">
+                  <label for="ciudad" class="col-4 col-form-label">Titulo*</label> 
+                  <form class="form-inline" role="form">
+                  <div class="form-group col-6">
+                    <select class="form-control"   [(ngModel)]="prospect.title_id" (ngModelChange)="showTitle()">
+                      <option *ngFor="let item of titleList; let i = index" [ngValue]="titleList[i].title_id">
+                         {{titleList[i].title_name}}
+                       </option>
+                      </select>                                    
+                   </div>
+                  </form>
+                </div>
+
+                <div class="form-group row">
+                  <label for="direction" class="col-4 col-form-label">Pais*</label> 
+                  <form class="form-inline" role="form">
+                      <div class="form-group col-6">
+                        <select class="form-control"   [(ngModel)]="prospect.country_id" (ngModelChange)="showCountry()">
+                          <option *ngFor="let item of countryList; let i = index" [ngValue]="countryList[i].country_id">
+                             {{countryList[i].country_name}}
+                           </option>
+                          </select>
                     </div>
+                    </form>
+                </div>
+
+                <div class="form-group row">
+                  <label for="ciudad" class="col-4 col-form-label">Ciudad*</label> 
+                  <form class="form-inline" role="form">
+                <div class="form-group col-6">
+                  <select class="form-control"   [(ngModel)]="prospect.city_id" (ngModelChange)="showCity()">
+                    <option *ngFor="let item of cityList; let i = index" [ngValue]="cityList[i].city_id">
+                       {{cityList[i].city_name}}
+                     </option>
+                    </select>                                    
+                 </div>
+                </form>
+              </div>
+              
+              <div class="form-group row">
+                <label for="Surnames" class="col-4 col-form-label">Direccion*</label> 
+                <div class="col-8">
+                  <input id="Surnames" name="Surnames" placeholder="Direccion" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_address">
+                </div>
+              </div>
+ 
                 
                 <div class="form-group row">
-                  <label for="pass" class="col-4 col-form-label">Salary</label> 
+                  <label for="pass" class="col-4 col-form-label">Salario</label> 
                   <div class="col-8">
-                    <input id="Salary" name="Salary" placeholder="Salary" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_salary">
+                    <input id="Salary" name="Salary" placeholder="Salario" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_salary">
                   </div>
                 </div>
                 <div class="form-group row">
-                    <label for="Title" class="col-4 col-form-label">Source</label> 
+                    <label for="Title" class="col-4 col-form-label">Fuente</label> 
                     <div class="col-8">
                       <select id="Title" name="Title" class="custom-select">
                         <option value="Developer">LinkedIn</option>
@@ -133,17 +156,17 @@
         
       </div> 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
-        <div ><button  type="submit" class="btn btn-primary">Save</button></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Cerrar</button>
+        <div *ngIf="save"><button (click)="saveprospect()" type="submit" class="btn btn-primary">Save</button></div>
 
       </div>
   
   </ng-template>
-  <!--<ng-template #confirm>
+  <ng-template #confirm>
     <div class="modal-body text-center">
       <p>Do you want to Delete?</p>
-      <button type="button" class="btn btn-default" (click)="deleteTechnology()" >Yes</button>
+      <button type="button" class="btn btn-default" (click)="deleteprospect()" >Yes</button>
       <button type="button" class="btn btn-primary" (click)="onClose()" >No</button>
     </div>
-  </ng-template>-->
+  </ng-template>
 </div>
