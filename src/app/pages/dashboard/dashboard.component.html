@@ -12,7 +12,6 @@
             <thead>
               <th>Nombre</th>
               <th>Apellido</th>
-              <th>Titulo</th>
               <th>Salario</th>
               <th>Detalles</th>
               <th>Delete</th>
@@ -21,7 +20,6 @@
               <tr *ngFor="let item of prospectList;let i = index">
                 <td>{{item.prospect_name}}</td>
                 <td>{{item.prospect_lastname}}</td>
-                <td>{{item.title_name}}</td>
                 <td>{{item.prospect_salary}}</td>
                 
                
@@ -134,17 +132,31 @@
                     <input id="Salary" name="Salary" placeholder="Salario" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_salary">
                   </div>
                 </div>
+                 
                 <div class="form-group row">
-                    <label for="Title" class="col-4 col-form-label">Fuente</label> 
-                    <div class="col-8">
-                      <select id="Title" name="Title" class="custom-select">
-                        <option value="Developer">LinkedIn</option>
-                        <option value="Implementer">Referred</option>
-                        <option value="Contributor">Twitter</option>
-                        <option value="Others">Others</option>
-                      </select>
-                    </div>
+                  <label for="pass" class="col-4 col-form-label">link</label> 
+                  <div class="col-8">
+                    <input id="Salary" name="Salary" placeholder="Salario" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_link">
                   </div>
+                </div>
+                <div class="form-group row">
+                  <label for="pass" class="col-4 col-form-label">cv</label> 
+                  <div class="col-8">
+                    <input id="Salary" name="Salary" placeholder="Salario" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_cv">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="pass" class="col-4 col-form-label">phot</label> 
+                  <div class="col-8">
+                    <input id="Salary" name="Salary" placeholder="Salario" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_photo">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="pass" class="col-4 col-form-label">Phone</label> 
+                  <div class="col-8">
+                    <input id="Salary" name="Salary" placeholder="Salario" class="form-control here" required="required" type="text" [(ngModel)]="prospect.prospect_phonenumber">
+                  </div>
+                </div>
                   <!-- <div class="form-group row">
                       <div class="offset-4 col-8">
                         <button name="submit" type="submit" class="btn btn-primary text-center">Save</button>
@@ -164,8 +176,8 @@
   </ng-template>
   <ng-template #confirm>
     <div class="modal-body text-center">
-      <p>Do you want to Delete?</p>
-      <button type="button" class="btn btn-default" (click)="deleteprospect()" >Yes</button>
+      <p>Esta seguro de Eliminar?</p>
+      <button type="button" class="btn btn-default" (click)="deleteprospect()" >Si</button>
       <button type="button" class="btn btn-primary" (click)="onClose()" >No</button>
     </div>
   </ng-template>

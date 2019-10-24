@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit{
 
     constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
       this.UserList = [];
-
+      this.titleList = [];
       this.softwareList = [];
       this.software = [];
       this.softwares= [];
@@ -156,6 +156,7 @@ export class DashboardComponent implements OnInit{
             //this.loader.dismiss();
           }
         );
+        
   }
 
   getcity() {
@@ -218,12 +219,6 @@ getsoftware() {
       }
     );
 }
-
-
-
-  
-  
-
   deleteprospect() {
     this.globalService.removeModel(this.prospect.prospect_id,"/Prospect").then(
       result => {
@@ -280,11 +275,13 @@ getsoftware() {
     let postprospect = {
       'prospect_id': this.prospect.prospect_id,
       'prospect_name': this.prospect.prospect_name,
+      'prospect_lastname': this.prospect.prospect_lastname,
       'prospect_birthday': this.prospect.prospect_birthday,
       'city_id': this.prospect.city_id,
       'prospect_address': this.prospect.prospect_address,
-      'prospect_cv': this.prospect.prospect_address,
-      'prospect_photo': this.prospect.prospect_photo,
+      'prospect_phonenumber': this.prospect.prospect_phonenumber,
+      'prospect_cv':  this.prospect.prospect_cv,
+      'prospect_photo':  this.prospect.prospect_photo,
       'prospect_link': this.prospect.prospect_link,
       'prospect_salary': this.prospect.prospect_salary,
       'title_id': this.prospect.title_id,

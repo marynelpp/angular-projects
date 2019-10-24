@@ -8,7 +8,7 @@
           height:250px;
           border-radius:120px;
           border-color: blue;">
-          <h4 class="text-center" style="color: blue;">Username</h4>
+          <p class="text-center" style="color: blue;">{{prospect.prospect_name}}</p>
          <p class="text-center">Specialty</p>
          <button name="submit" type="submit" class="btn btn-primary btn-xs">Setting</button>
          <button type="button" class="btn btn-default" onclick="location.href='#/dashboard'">Back</button>
@@ -48,41 +48,19 @@
                                         </div>
                                       </form>
                                   </div>
-                                <div class="form-group row">
-                                    <label for="Title" class="col-4 col-form-label">Title</label> 
+                                  <div class="form-group row">
+                                    <label for="Surnames" class="col-4 col-form-label">Surnames*</label> 
                                     <div class="col-8">
-                                      <select id="Title" name="Title" class="custom-select">
-                                        <option value="Developer">Developer</option>
-                                        <option value="Implementer">Implementer</option>
-                                        <option value="Contributor">Contributor</option>
-                                        <option value="Others">Others</option>
-                                      </select>
+                                      <input id="Surnames" name="Surnames" placeholder="Surnames" required="required" class="form-control here" type="text" [(ngModel)]="prospect.prospect_lastname">
                                     </div>
-                                  </div> 
+                                  </div>
                                   <div class="form-group row">
                                       <label for="Software" class="col-4 col-form-label">Software listing</label> 
                                       <div class="col-8">
                                         <input id="Software" name="Software" placeholder="Software" class="form-control here" type="text">
                                       </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="direction" class="col-4 col-form-label">Direction*</label> 
-                                        <form class="form-inline" role="form">
-                                            <div class="form-group col-6">
-                                                <select id="country" name="country" class="custom-select">
-                                                  <option value="">Mexico</option>
-                                                  <option value="">Venezuela</option>
-                                                </select>
-                                              </div>
-                                          <div class="form-group col-6">
-                                            <select id="city" name="city" class="custom-select">
-                                              <option value="">Texas</option>
-                                              <option value="">Barquisimeto</option>
-                                            </select>                                     
-                                           </div>
-                                          </form>
-                                      </div>
-                                
+                                    
                                 <div class="form-group row">
                                   <label for="pass" class="col-4 col-form-label">Salary</label> 
                                   <div class="col-8">
