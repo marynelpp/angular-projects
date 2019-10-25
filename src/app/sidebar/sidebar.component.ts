@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
     selectedSoftware;
     softwareList: any;
     softwares: any;
-
+    softwareTest:any;
     
     
 
@@ -53,14 +53,17 @@ export class SidebarComponent implements OnInit {
       this.softwares=[];
     }
 
+selectSoftware(event){
+   console.log(this.softwareTest);
+  localStorage.setItem("soft", this.softwareTest)
+}
+
     getSotware() {
       this.globalService.getModel("/Software").then(
           result => {
             console.log(result);
             this.softwareList = result;
-            this.softwareList.map(item=>{
-              this.software.push({ id: item.software_id, name: item.software_name})
-            })
+          
           },
           err => {
             console.log(err);

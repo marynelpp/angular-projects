@@ -13,13 +13,19 @@
           <div class="container">
               <div class="form-group">
               <label class="text-white">Software</label>
-                    <div class="d-flex justify-content-center my-2">  
-                  <ngx-multiselect
-                    [(ngModel)]="softwares"
-                    [options]="software"
-                    ngDefaultControl>
-                  </ngx-multiselect>
-                </div>
+              <div class="input-group">
+                  
+                
+              
+
+              <select (click)="selectSoftware($event)" class="form-control"  [(ngModel)]="softwareTest">
+                <option *ngFor="let software of softwareList; let i = index" [ngValue]="softwareList[i].software_id">
+                   {{softwareList[i].software_name}}
+                 </option>
+                </select>
+
+
+              </div>
               </div>
                      
              
@@ -27,9 +33,9 @@
                     <label class="text-white">Pais</label>
                     <div class="input-group">
                   
-                      <select  name="UserID"  class="form-control">
+                      <select  name="pais"  class="form-control">
                         <option value="0">-Select-</option>
-                        <option >Mexico</option>
+                      
                       </select>
                     </div>
                   </div>
@@ -38,9 +44,9 @@
                         <label class="text-white">Ciudad</label>
                         <div class="input-group">
                       
-                          <select  name="UserID"  class="form-control">
+                          <select  name="ciudad"  class="form-control">
                             <option value="0">-Select-</option>
-                            <option >Texas</option>
+                            
                           </select>
                         </div>
                         </div>

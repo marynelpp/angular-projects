@@ -1,16 +1,18 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, NgModule } from '@angular/core';
 import { GlobalService } from "../providers/global.service";
 
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-
+import {MainPipe} from './pipe.module';
 @Component({
     selector: 'dashboard-cmp',
     moduleId: module.id,
-    templateUrl: 'dashboard.component.html'
+    templateUrl: 'dashboard.component.html',
+    
 })
 
 export class DashboardComponent implements OnInit{
-
+  MainPipe = {name:''}
+  
   pageActual: number = 1;
   public canvas : any;
   public ctx;
@@ -29,7 +31,7 @@ export class DashboardComponent implements OnInit{
   title: any;
   titles: any;
   bsModalRef: BsModalRef;
-
+  idprospect:string;
   titleModal: string="";
   save: boolean=false;
   edit: boolean=false;
@@ -40,10 +42,13 @@ export class DashboardComponent implements OnInit{
 
   UserList :any;
 
+ 
+
   prospect;
   selectedsoftware;
 
     ngOnInit(){
+      
       this.getsoftware();
       this.getprospects();
       this.gettitle();
@@ -63,7 +68,7 @@ export class DashboardComponent implements OnInit{
     }];
     } 
 
-   
+  
 
     constructor(private globalService: GlobalService, private bsModalService: BsModalService) {
       this.UserList = [];
@@ -71,6 +76,7 @@ export class DashboardComponent implements OnInit{
       this.softwareList = [];
       this.software = [];
       this.softwares= [];
+      
     }
     loadPage(item){
       // console.log(item);
@@ -269,6 +275,10 @@ getsoftware() {
   }
 
 
+
+  
+
+
   saveprospect() {
     console.log(this.prospect)
     
@@ -285,8 +295,6 @@ getsoftware() {
       'prospect_link': this.prospect.prospect_link,
       'prospect_salary': this.prospect.prospect_salary,
       'title_id': this.prospect.title_id,
-      
-     
     };
 
     this.globalService.addModel(postprospect, "/Prospect").then(
@@ -302,6 +310,36 @@ getsoftware() {
    
     this.onClose();
   }
+
+  prospectfilter() {
+   console.log(JSON.stringify(localStorage.getItem('soft')))
+   
+    let postprospect = {
+      "prospect_id": "",
+      "ageMin": "",
+      "ageMax": null,
+      "salaryMin": null,
+      "salaryMax": null,
+      "expierenceLevel": null,
+      "yearsExpierenceMin": null,
+      "yearsExpierenceMax": null,
+      "software_id": null
+    };
+
+    this.globalService.addModel(postprospect, "/prospect/filter").then(
+      result => {
+        console.log(result);
+        return result;
+      },
+      err => {
+        console.log(err);
+        //this.loader.dismiss();
+      }
+    );
+   
+    this.onClose();
+  }
+
 
   onClose() {
     this.edit=false;
